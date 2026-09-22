@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-slate-800 min-h-screen antialiased;
+    font-family: 'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Lexend', sans-serif;
+    @apply tracking-tight text-sfm-navy font-bold;
+  }
+}
+
+/* Red accent bar inspired by Presentation Slide headers */
+.red-accent-line {
+  position: relative;
+}
+.red-accent-line::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 4px;
+  background: #c1121f;
+  margin-bottom: 12px;
+  border-radius: 2px;
+}
+
+/* Light Card Panels */
+.presentation-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s ease;
+}
+.presentation-card:hover {
+  box-shadow: 0 16px 30px -10px rgba(15, 23, 42, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Left Accent Highlight Card (like Slide 2 in PPT) */
+.left-accent-blue {
+  border-left: 4px solid #1e3a8a;
+}
+.left-accent-red {
+  border-left: 4px solid #c1121f;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
