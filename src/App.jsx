@@ -15,6 +15,7 @@ import IFMServices from './pages/IFMServices';
 import ServiceDetails from './pages/ServiceDetails';
 import Industries from './pages/Industries';
 import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 import ContactAudit from './pages/ContactAudit';
 import VigyaniAi from './pages/VigyaniAi';
 import SafetyCompliance from './pages/SafetyCompliance';
@@ -104,6 +105,14 @@ export default function App() {
             element={
               <PublicLayout>
                 <Blog />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/blogs/:id"
+            element={
+              <PublicLayout>
+                <BlogDetail />
               </PublicLayout>
             }
           />

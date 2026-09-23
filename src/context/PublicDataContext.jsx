@@ -54,37 +54,8 @@ const DEFAULT_SOCIALS = {
   instagram: 'https://instagram.com'
 };
 
-const DEFAULT_CATEGORIES = [
-  { id: 'cat-1', name: 'AI & Predictive FM' },
-  { id: 'cat-2', name: 'Hard Engineering' },
-  { id: 'cat-3', name: 'Safety & Compliance' },
-  { id: 'cat-4', name: 'Case Studies' }
-];
-
-const DEFAULT_BLOGS = [
-  {
-    id: 'blog-1',
-    title: 'How AI Predictive Telemetry Prevents HVAC Chiller Failures in Luxury Hotels',
-    category: 'AI & Predictive FM',
-    author: 'Pranjal Gupta',
-    date: '2026-06-18',
-    readTime: '4 min read',
-    published: true,
-    excerpt: 'Traditional maintenance is reactive. Learn how Vigyani.ai IoT vibration and thermal sensors predict motor bearing degradation 72 hours before catastrophic breakdown.',
-    content: '<h2>The Shift from Reactive to Predictive Asset Oversight</h2><p>Commercial chiller plants in five-star hotels operate under continuous thermal strain. When a bearing fails unexpectedly during a banquet event, the financial and reputational cost is enormous.</p><p>By deploying <strong>Vigyani.ai IoT sensor arrays</strong>, engineering heads receive real-time alerts 72 hours in advance of mechanical failure.</p>'
-  },
-  {
-    id: 'blog-2',
-    title: 'Zero Liability Transfer: Why 100% ESIC, PF & LOTO Protocols Protect Property Owners',
-    category: 'Safety & Compliance',
-    author: 'SFM Safety Cell',
-    date: '2026-06-12',
-    readTime: '5 min read',
-    published: true,
-    excerpt: 'Uncertified third-party contractors expose corporate facilities to severe legal liabilities. Discover how Spartans FM enforces strict Lock-Out, Tag-Out and statutory insurance backing.',
-    content: '<h2>Corporate Protection through Strict Statutory Compliance</h2><p>Facility owners often face severe liabilities if uncertified third-party contractors suffer accidents on site. Spartans FM guarantees 100% ESIC and Workmen Compensation backing.</p>'
-  }
-];
+const DEFAULT_CATEGORIES = [];
+const DEFAULT_BLOGS = [];
 
 export function PublicDataProvider({ children }) {
   const [banners, setBanners] = useState(() => {
@@ -114,27 +85,15 @@ export function PublicDataProvider({ children }) {
     }
   });
 
-  const [blogs, setBlogs] = useState(() => {
-    try {
-      const saved = localStorage.getItem('sfm_admin_blogs');
-      return saved ? JSON.parse(saved) : DEFAULT_BLOGS;
-    } catch {
-      return DEFAULT_BLOGS;
-    }
-  });
+  // Pure dynamic state from Database API
+  const [blogs, setBlogs] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const [categories, setCategories] = useState(() => {
-    try {
-      const saved = localStorage.getItem('sfm_admin_categories');
-      return saved ? JSON.parse(saved) : DEFAULT_CATEGORIES;
-    } catch {
-      return DEFAULT_CATEGORIES;
-    }
-  });
-
-  // Sync dynamically with Backend REST API on mount
+  // Always fetch live data from MongoDB Atlas Database API
   useEffect(() => {
     const fetchAllDynamicData = async () => {
+      setLoading(true);
       try {
         const [banRes, homeRes, socRes, blogRes, catRes] = await Promise.allSettled([
           getBannersAPI(),
@@ -146,34 +105,25 @@ export function PublicDataProvider({ children }) {
 
         if (banRes.status === 'fulfilled' && banRes.value?.data !== undefined) {
           setBanners(banRes.value.data);
-          localStorage.setItem('sfm_admin_banners', JSON.stringify(banRes.value.data));
         }
         if (homeRes.status === 'fulfilled' && homeRes.value?.data) {
           setHomepage(homeRes.value.data);
-          localStorage.setItem('sfm_admin_homepage', JSON.stringify(homeRes.value.data));
         }
         if (socRes.status === 'fulfilled' && socRes.value?.data) {
           setSocials(socRes.value.data);
-          localStorage.setItem('sfm_admin_socials', JSON.stringify(socRes.value.data));
         }
         if (blogRes.status === 'fulfilled' && blogRes.value?.data !== undefined) {
-          // Only replace blogs if API returned data (avoid wiping cache with empty array on first boot)
-          const blogsFromApi = blogRes.value.data;
-          if (Array.isArray(blogsFromApi) && blogsFromApi.length > 0) {
-            setBlogs(blogsFromApi);
-            localStorage.setItem('sfm_admin_blogs', JSON.stringify(blogsFromApi));
-          } else if (Array.isArray(blogsFromApi) && blogsFromApi.length === 0) {
-            // API returned empty - clear local cache too (blogs genuinely deleted from DB)
-            setBlogs([]);
-            localStorage.setItem('sfm_admin_blogs', JSON.stringify([]));
-          }
+          const apiBlogs = blogRes.value.data;
+          setBlogs(Array.isArray(apiBlogs) ? apiBlogs : []);
         }
         if (catRes.status === 'fulfilled' && catRes.value?.data !== undefined) {
-          setCategories(catRes.value.data);
-          localStorage.setItem('sfm_admin_categories', JSON.stringify(catRes.value.data));
+          const apiCategories = catRes.value.data;
+          setCategories(Array.isArray(apiCategories) ? apiCategories : []);
         }
       } catch (err) {
-        console.warn('Backend dynamic sync error:', err.message);
+        console.warn('Backend dynamic fetch error:', err.message);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -187,7 +137,8 @@ export function PublicDataProvider({ children }) {
         homepage,
         socials,
         blogs,
-        categories
+        categories,
+        loading
       }}
     >
       {children}

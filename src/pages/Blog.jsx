@@ -15,7 +15,7 @@ import {
 } from 'react-icons/fi';
 
 export default function Blog() {
-  const { blogs, categories, socials } = usePublicData();
+  const { blogs, categories, socials, loading } = usePublicData();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeArticleModal, setActiveArticleModal] = useState(null);
 
@@ -66,7 +66,12 @@ export default function Blog() {
       {/* Blog Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredArticles.length === 0 ? (
+          {loading && blogs.length === 0 ? (
+            <div className="text-center py-20 bg-slate-50 rounded-3xl border border-slate-200">
+              <div className="w-10 h-10 border-4 border-slate-200 border-t-[#c1121f] rounded-full animate-spin mx-auto mb-3"></div>
+              <p className="text-sm font-bold text-slate-600">Fetching live blogs from database...</p>
+            </div>
+          ) : filteredArticles.length === 0 ? (
             <div className="text-center py-16 bg-slate-50 rounded-3xl border border-slate-200">
               <FiBookOpen className="w-12 h-12 text-slate-400 mx-auto mb-3" />
               <h3 className="text-lg font-bold text-slate-800">No articles found in this category</h3>
@@ -77,44 +82,67 @@ export default function Blog() {
               {filteredArticles.map(article => (
                 <div
                   key={article.id}
-                  className="p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-card-hover flex flex-col justify-between group"
+                  className="rounded-3xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-card-hover flex flex-col justify-between group overflow-hidden"
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl p-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                        📰
-                      </span>
-                      <span className="text-[11px] font-bold px-2.5 py-1 rounded bg-white text-sky-800 border border-slate-200">
-                        {article.category}
-                      </span>
+                  {/* Article Feature Image (if available) */}
+                  {article.image && (
+                    <Link to={`/blogs/${article.id}`} className="block relative h-48 bg-slate-900 overflow-hidden border-b border-slate-100">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-white/95 text-slate-900 shadow-sm border border-slate-100">
+                          {article.category}
+                        </span>
+                      </div>
+                    </Link>
+                  )}
+
+                  <div className="p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                      {!article.image && (
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="text-2xl p-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                            📰
+                          </span>
+                          <span className="text-[11px] font-bold px-2.5 py-1 rounded bg-white text-sky-800 border border-slate-200">
+                            {article.category}
+                          </span>
+                        </div>
+                      )}
+
+                      <Link to={`/blogs/${article.id}`}>
+                        <h3 className="text-xl font-bold text-[#0b1d3a] font-display mb-3 group-hover:text-[#c1121f] transition-colors leading-snug">
+                          {article.title}
+                        </h3>
+                      </Link>
+
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                        {article.excerpt}
+                      </p>
                     </div>
 
-                    <h3 className="text-xl font-bold text-[#0b1d3a] font-display mb-3 group-hover:text-[#c1121f] transition-colors leading-snug">
-                      {article.title}
-                    </h3>
+                    <div className="pt-4 border-t border-slate-200">
+                      <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                        <span className="flex items-center gap-1.5 font-medium">
+                          <FiUser className="text-slate-400" /> {article.author}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <FiClock className="text-slate-400" /> {article.readTime || '4 min read'}
+                        </span>
+                      </div>
 
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                      {article.excerpt}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-200">
-                    <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
-                      <span className="flex items-center gap-1.5 font-medium">
-                        <FiUser className="text-slate-400" /> {article.author}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <FiClock className="text-slate-400" /> {article.readTime || '4 min read'}
-                      </span>
+                      <Link
+                        to={`/blogs/${article.id}`}
+                        className="w-full py-3 px-4 rounded-xl bg-white border border-slate-200 hover:bg-[#0b1d3a] hover:text-white hover:border-[#0b1d3a] text-xs font-bold text-[#0b1d3a] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm group/btn text-center"
+                      >
+                        <span>Read Full Insight</span>
+                        <FiArrowRight className="text-[#c1121f] group-hover/btn:text-white transition-colors" />
+                      </Link>
                     </div>
-
-                    <button
-                      onClick={() => setActiveArticleModal(article)}
-                      className="w-full py-2.5 px-3 rounded-xl bg-white border border-slate-200 hover:bg-[#0b1d3a] hover:text-white hover:border-[#0b1d3a] text-xs font-bold text-[#0b1d3a] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm group/btn"
-                    >
-                      <span>Read Full Insight</span>
-                      <FiArrowRight className="text-[#c1121f] group-hover/btn:text-white transition-colors" />
-                    </button>
                   </div>
                 </div>
               ))}
