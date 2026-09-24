@@ -1,11 +1,11 @@
 import React from 'react';
 import { useAdminAuth } from '../context/AdminAuthContext';
 import { useAdminData } from '../context/AdminDataContext';
-import { 
-  FiMenu, 
-  FiBell, 
-  FiUser, 
-  FiLogOut, 
+import {
+  FiMenu,
+  FiBell,
+  FiUser,
+  FiLogOut,
   FiExternalLink,
   FiSearch
 } from 'react-icons/fi';
@@ -37,8 +37,8 @@ export default function AdminHeader({ onOpenMobileSidebar, title = 'Dashboard' }
 
       {/* Right: Actions, Notifications & Profile */}
       <div className="flex items-center gap-3 sm:gap-4">
-        
-        {/* View Public Website */}
+
+        {/*  */}
         <a
           href="/"
           target="_blank"
