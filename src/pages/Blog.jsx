@@ -19,14 +19,31 @@ export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeArticleModal, setActiveArticleModal] = useState(null);
 
-  const filterCategories = [
-    { id: 'all', label: 'All Articles' },
-    ...categories.map(c => ({ id: c.name, label: c.name }))
-  ];
+  // Only extract categories that actually have active/published blogs
+  const publishedBlogs = blogs.filter(b => b.published !== false);
+
+  // Extract unique category names from existing published blogs
+  const uniqueBlogCategories = Array.from(
+    new Set(
+      publishedBlogs
+        .map(b => b.category?.trim())
+        .filter(cat => Boolean(cat))
+    )
+  );
+
+  const filterCategories = uniqueBlogCategories.length > 0
+    ? [
+        { id: 'all', label: `All Articles (${publishedBlogs.length})` },
+        ...uniqueBlogCategories.map(catName => ({
+          id: catName,
+          label: `${catName} (${publishedBlogs.filter(b => b.category?.trim() === catName).length})`
+        }))
+      ]
+    : [];
 
   const filteredArticles = selectedCategory === 'all'
-    ? blogs.filter(b => b.published !== false)
-    : blogs.filter(b => b.published !== false && (b.category === selectedCategory || b.categoryId === selectedCategory));
+    ? publishedBlogs
+    : publishedBlogs.filter(b => b.category?.trim() === selectedCategory || b.categoryId === selectedCategory);
 
   return (
     <AnimatedPage>
