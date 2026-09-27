@@ -217,13 +217,13 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-3 font-medium text-slate-600">
             <span>© {new Date().getFullYear()} Spartans Facility Management</span>
             <span>•</span>
-            <span>
-              Crafted with <span className="text-[#c1121f]">❤️</span> by{' '}
+            <span className="flex items-center gap-1">
+              Crafted with <FiShield className="text-[#c1121f] inline text-xs" /> by{' '}
               <a 
                 href={socials?.website || '#'} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="font-bold text-[#0b1d3a] hover:text-[#c1121f] underline underline-offset-2 transition-colors"
+                className="font-bold text-[#0b1d3a] hover:text-[#c1121f] underline underline-offset-2 transition-colors ml-1"
               >
                 Team DigiCoders
               </a>

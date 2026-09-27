@@ -32,7 +32,8 @@ export default function ServiceDetails() {
         'Psychrometric indoor air quality (IAQ) and humidity modulation'
       ],
       tools: ['Ultrasonic Leak Detectors', 'Fluke Thermal Imagers', 'Refrigerant Recovery Units', 'Digital Manometer Gauges'],
-      deliverables: 'Daily compressor load logs, periodic descaling certificates, and energy efficiency audit reports.'
+      deliverables: 'Daily compressor load logs, periodic descaling certificates, and energy efficiency audit reports.',
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80'
     },
     electrical: {
       name: 'Electrical Power & Switchgear Systems',
@@ -47,7 +48,8 @@ export default function ServiceDetails() {
         '24/7 Rapid electrical breakdown response squads'
       ],
       tools: ['Megger Insulation Testers', 'Thermal Thermography Cameras', 'Earth Resistance Testers', 'True RMS Clamp Meters'],
-      deliverables: 'DB thermography heat-maps, statutory CEA compliance documentation, and UPS health logs.'
+      deliverables: 'DB thermography heat-maps, statutory CEA compliance documentation, and UPS health logs.',
+      image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80'
     },
     plumbing: {
       name: 'Plumbing & Hydro-Pneumatics (PHE)',
@@ -62,7 +64,8 @@ export default function ServiceDetails() {
         'Pressure reducing valve (PRV) recalibration across multi-tier towers'
       ],
       tools: ['Acoustic Pipe Leak Detectors', 'Hydrostatic Pressure Test Rigs', 'Motorized Drain Clearing Augers'],
-      deliverables: 'Water quality lab certificates, STP discharge compliance logs, and pump efficiency curves.'
+      deliverables: 'Water quality lab certificates, STP discharge compliance logs, and pump efficiency curves.',
+      image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1000&q=80'
     },
     fire: {
       name: 'Fire & Life Safety Overhauls',
@@ -77,7 +80,8 @@ export default function ServiceDetails() {
         'Emergency mock-drill execution and statutory log maintenance'
       ],
       tools: ['Hydrant Flow & Pressure Rigs', 'Aerosol Smoke Sensor Testers', 'Decibel Sound Meters for PAVA'],
-      deliverables: 'Annual Fire NOC renewal assistance, monthly testing dossiers, and emergency drill logs.'
+      deliverables: 'Annual Fire NOC renewal assistance, monthly testing dossiers, and emergency drill logs.',
+      image: 'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1000&q=80'
     },
     bms: {
       name: 'ELV & BMS Diagnostics',
@@ -92,7 +96,8 @@ export default function ServiceDetails() {
         'Low-voltage circuit tracing and Cat6/Fiber optic termination'
       ],
       tools: ['OTDR Fiber Testers', 'Network Cable Analyzers', 'Digital Multimeters', 'BMS Config Software'],
-      deliverables: 'BMS sensor calibration logs, CCTV uptime reports, and access control audit trails.'
+      deliverables: 'BMS sensor calibration logs, CCTV uptime reports, and access control audit trails.',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80'
     },
     civil: {
       name: 'Civil & Fit-outs',
@@ -107,7 +112,8 @@ export default function ServiceDetails() {
         'High-grade localized paint touch-ups for 5-star aesthetics'
       ],
       tools: ['Laser Level Gauges', 'Diamond Floor Polishing Machines', 'Scaffolding & Safe Harness Kits'],
-      deliverables: 'Site snag-lists resolution certificates and civil maintenance signoff reports.'
+      deliverables: 'Site snag-lists resolution certificates and civil maintenance signoff reports.',
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80'
     }
   };
 
@@ -116,7 +122,7 @@ export default function ServiceDetails() {
   return (
     <AnimatedPage>
       {/* Hero */}
-      <section className="relative py-16 bg-slate-50 border-b border-slate-200">
+      <section className="relative py-10 sm:py-12 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="w-12 h-1 bg-sfm-red rounded mb-3"></div>
           <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block mb-1">
@@ -132,7 +138,7 @@ export default function ServiceDetails() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             
@@ -171,12 +177,30 @@ export default function ServiceDetails() {
 
             {/* Right Service Detail Card */}
             <div className="lg:col-span-8">
-              <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200 shadow-card space-y-8">
+              <div className="rounded-3xl bg-slate-50 border border-slate-200 shadow-card overflow-hidden">
+                {/* Service Visual Banner */}
+                {cur.image && (
+                  <div className="relative h-56 w-full bg-slate-900 overflow-hidden">
+                    <img
+                      key={selectedService}
+                      src={cur.image}
+                      alt={cur.name}
+                      className="w-full h-full object-cover animate-in fade-in zoom-in-95 duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/30 to-transparent"></div>
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3.5 py-1 rounded-full bg-white/95 backdrop-blur text-slate-900 text-xs font-black uppercase tracking-wider shadow">
+                        {cur.tag}
+                      </span>
+                    </div>
+                  </div>
+                )}
                 
+                <div className="p-8 sm:p-10 space-y-8">
                 {/* Header */}
                 <div className="flex items-start justify-between gap-4 pb-6 border-b border-slate-200">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-sm">
+                    <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-sm shrink-0">
                       {cur.icon}
                     </div>
                     <div>
@@ -242,6 +266,7 @@ export default function ServiceDetails() {
                   </Link>
                 </div>
 
+                </div>
               </div>
             </div>
 

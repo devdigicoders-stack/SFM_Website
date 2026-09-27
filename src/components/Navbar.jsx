@@ -109,17 +109,6 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* CTA Button */}
-            <div className="hidden xl:flex items-center gap-3">
-              <Link
-                to="/contact"
-                className="px-4 py-2.5 rounded-xl bg-[#c1121f] hover:bg-[#a50f1a] text-white font-bold text-xs shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 transform active:scale-95 shrink-0"
-              >
-                <span>Book Facility Audit</span>
-                <FiChevronRight className="text-xs" />
-              </Link>
-            </div>
-
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -156,16 +145,6 @@ export default function Navbar() {
                 <FiChevronRight className="text-xs opacity-50" />
               </Link>
             ))}
-            <div className="pt-3 border-t border-slate-100">
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="w-full py-3 px-4 bg-[#c1121f] text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-md"
-              >
-                <span>Book Facility Audit</span>
-                <FiChevronRight />
-              </Link>
-            </div>
           </div>
         )}
       </header>

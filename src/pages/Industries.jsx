@@ -5,14 +5,20 @@ import {
   FiAward, 
   FiCheckCircle, 
   FiArrowRight,
-  FiShield
+  FiShield,
+  FiHome,
+  FiShoppingBag,
+  FiBriefcase,
+  FiActivity,
+  FiTool
 } from 'react-icons/fi';
 
 export default function Industries() {
   const industries = [
     {
       name: 'Luxury Hospitality & Five-Star Hotels',
-      icon: '🏨',
+      icon: <FiHome className="text-2xl text-[#c1121f]" />,
+      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
       subtitle: 'Zero Guest Disruption & 5-Star Audit Readiness',
       clients: 'Taj Palace Lucknow, Novotel, Hyatt Regency, Ginger (IHCL Brand), Hilton Garden Inn, Radisson, Marriott',
       painPoints: 'Ballroom AC failure during events, noisy chiller vibrations, guest water pressure drops, unverified staff entering VIP suites.',
@@ -21,7 +27,8 @@ export default function Industries() {
     },
     {
       name: 'Retail & Mega Shopping Malls',
-      icon: '🛍️',
+      icon: <FiShoppingBag className="text-2xl text-purple-600" />,
+      image: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=800&q=80',
       subtitle: 'High Footfall Hard Services & Public Safety',
       clients: 'Phoenix Palassio, Lulu Mall',
       painPoints: 'Peak weekend escalator/elevator outages, exterior glass facade spider glazing leakage, food court grease-trap clogging, central chiller trips.',
@@ -30,7 +37,8 @@ export default function Industries() {
     },
     {
       name: 'Corporate Campuses & BPO Tech Parks',
-      icon: '🏢',
+      icon: <FiBriefcase className="text-2xl text-blue-600" />,
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
       subtitle: '24/7 Server Room Thermal Integrity & Power Continuity',
       clients: 'Teleperformance, Multi-tenant IT Hubs',
       painPoints: 'Server room Precision AC (PAC) failure, UPS battery impedance degradation, compliance failures during multinational client vendor audits.',
@@ -39,7 +47,8 @@ export default function Industries() {
     },
     {
       name: 'Healthcare & High-Stakes Hospitals',
-      icon: '🏥',
+      icon: <FiActivity className="text-2xl text-emerald-600" />,
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
       subtitle: 'Statutory Medical Gas, OT Hygiene & Life Safety',
       clients: 'Regional Hospital Networks, Specialized Diagnostic Labs',
       painPoints: 'OT laminar flow contamination, negative pressure room leaks, ICU power flickers, strict statutory healthcare inspections.',
@@ -48,7 +57,8 @@ export default function Industries() {
     },
     {
       name: 'Industrial & Manufacturing Plants',
-      icon: '🏭',
+      icon: <FiTool className="text-2xl text-amber-600" />,
+      image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=800&q=80',
       subtitle: 'Heavy Electrical Transformers & Machine Uptime',
       clients: 'Regional Manufacturing Facilities, Warehouses',
       painPoints: 'HT switchgear tripping, high ambient transformer overheating, unmonitored compressor wear causing production halts.',
@@ -60,7 +70,7 @@ export default function Industries() {
   return (
     <AnimatedPage>
       {/* Hero */}
-      <section className="relative py-16 bg-slate-50 border-b border-slate-200">
+      <section className="relative py-10 sm:py-12 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="w-12 h-1 bg-sfm-red rounded mb-3"></div>
           <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block mb-1">
@@ -76,39 +86,50 @@ export default function Industries() {
       </section>
 
       {/* Industry Cards List */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="py-10 sm:py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           {industries.map((ind, idx) => (
             <div
               key={idx}
-              className="p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200 shadow-card hover:shadow-card-hover transition-all"
+              className="rounded-3xl bg-slate-50 border border-slate-200 shadow-card hover:shadow-card-hover transition-all overflow-hidden"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
                 
-                {/* Left Header */}
-                <div className="lg:col-span-4 space-y-3">
-                  <div className="text-4xl p-3.5 rounded-2xl bg-white border border-slate-200 w-fit shadow-sm">
-                    {ind.icon}
-                  </div>
-                  <h3 className="text-2xl font-black text-sfm-navy font-display">
-                    {ind.name}
-                  </h3>
-                  <p className="text-xs font-bold text-sky-700 uppercase tracking-wider">
-                    {ind.subtitle}
-                  </p>
-                  <div className="pt-2">
-                    <span className="text-[11px] font-extrabold text-slate-500 uppercase block mb-1">
-                      Trusted Portfolio:
-                    </span>
-                    <span className="text-xs font-semibold text-slate-800 leading-relaxed block">
-                      {ind.clients}
-                    </span>
+                {/* Visual Image Banner & Left Header */}
+                <div className="lg:col-span-5 relative bg-slate-900 min-h-[260px] overflow-hidden flex flex-col justify-end p-8 text-white">
+                  <img
+                    src={ind.image}
+                    alt={ind.name}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                  
+                  <div className="relative z-10 space-y-2">
+                    <div className="text-3xl p-2.5 rounded-2xl bg-white/95 text-slate-900 backdrop-blur w-fit shadow-md">
+                      {ind.icon}
+                    </div>
+                    <h3 className="text-2xl font-black text-white font-display">
+                      {ind.name}
+                    </h3>
+                    <p className="text-xs font-extrabold text-red-400 uppercase tracking-wider">
+                      {ind.subtitle}
+                    </p>
                   </div>
                 </div>
 
                 {/* Right Solutions & Metrics */}
-                <div className="lg:col-span-8 space-y-6">
+                <div className="lg:col-span-7 p-8 sm:p-10 space-y-6 flex flex-col justify-between">
                   
+                  <div>
+                    <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest block mb-1">
+                      Trusted Client Portfolio
+                    </span>
+                    <p className="text-xs font-bold text-slate-800 leading-relaxed">
+                      {ind.clients}
+                    </p>
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="p-4 rounded-2xl bg-white border border-slate-200">
                       <strong className="text-xs font-bold text-sfm-red uppercase tracking-wider block mb-1">
@@ -141,9 +162,9 @@ export default function Industries() {
 
                     <Link
                       to="/contact"
-                      className="px-5 py-2.5 rounded-xl bg-sfm-navy hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition-all flex items-center gap-2 shrink-0"
+                      className="px-5 py-2.5 rounded-xl bg-[#0b1d3a] hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition-all flex items-center gap-2 shrink-0"
                     >
-                      <span>Inquire for {ind.name.split('&')[0]}</span>
+                      <span>Explore Vertical SLA</span>
                       <FiArrowRight />
                     </Link>
                   </div>

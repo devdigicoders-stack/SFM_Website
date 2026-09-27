@@ -45,7 +45,7 @@ export default function VigyaniAi() {
   return (
     <AnimatedPage>
       {/* Hero */}
-      <section className="relative py-16 bg-slate-50 border-b border-slate-200">
+      <section className="relative py-10 sm:py-12 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="w-12 h-1 bg-sfm-red rounded mb-3"></div>
           <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block mb-1">
@@ -61,7 +61,7 @@ export default function VigyaniAi() {
       </section>
 
       {/* Main Interactive Showcase */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="mb-10">
@@ -79,7 +79,7 @@ export default function VigyaniAi() {
       </section>
 
       {/* 3 Core AI Pillars Interactive from Slide 6 Deck 2 */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
+      <section className="py-10 sm:py-12 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             

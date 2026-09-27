@@ -1,18 +1,30 @@
 import React from 'react';
-import { FiCheckCircle, FiAward } from 'react-icons/fi';
+import { 
+  FiCheckCircle, 
+  FiAward, 
+  FiCompass, 
+  FiGlobe, 
+  FiStar, 
+  FiShoppingBag, 
+  FiBriefcase, 
+  FiFeather, 
+  FiLayers, 
+  FiHome, 
+  FiShield 
+} from 'react-icons/fi';
 
 export default function ClientLogoSlider() {
   const clients = [
-    { name: 'Taj Palace Lucknow', category: 'Luxury Flagship', highlight: 'Lead Technical FM Partner', icon: '🏛️' },
-    { name: 'Novotel', category: 'Hospitality', highlight: 'E&M Uptime', icon: '🏨' },
-    { name: 'Hyatt Regency', category: 'Luxury Hotel', highlight: 'HVAC & Power', icon: '✨' },
-    { name: 'Ginger (An IHCL Brand)', category: 'Hospitality Chain', highlight: 'Comprehensive Cover', icon: '🌿' },
-    { name: 'Hilton Garden Inn', category: 'Hospitality', highlight: 'Electrical & Life Safety', icon: '⭐' },
-    { name: 'Phoenix Palassio', category: 'Mega Retail Mall', highlight: 'Hard Services & Fit-outs', icon: '🛍️' },
-    { name: 'Teleperformance', category: 'Global BPO Hub', highlight: '24/7 Critical Uptime', icon: '🏢' },
-    { name: 'Radisson', category: 'Hospitality', highlight: 'Planned Preventive', icon: '🌐' },
-    { name: 'Marriott', category: 'Luxury Brand', highlight: 'Multi-system audits', icon: '💎' },
-    { name: 'Lulu Mall', category: 'Commercial Retail', highlight: 'Central Command Support', icon: '🏬' },
+    { name: 'Taj Palace Lucknow', category: 'Luxury Flagship', highlight: 'Lead Technical FM Partner', icon: <FiShield className="text-xl text-[#c1121f]" /> },
+    { name: 'Novotel', category: 'Hospitality', highlight: 'E&M Uptime', icon: <FiHome className="text-xl text-[#0b1d3a]" /> },
+    { name: 'Hyatt Regency', category: 'Luxury Hotel', highlight: 'HVAC & Power', icon: <FiStar className="text-xl text-amber-500" /> },
+    { name: 'Ginger (An IHCL Brand)', category: 'Hospitality Chain', highlight: 'Comprehensive Cover', icon: <FiFeather className="text-xl text-emerald-600" /> },
+    { name: 'Hilton Garden Inn', category: 'Hospitality', highlight: 'Electrical & Life Safety', icon: <FiCompass className="text-xl text-sky-600" /> },
+    { name: 'Phoenix Palassio', category: 'Mega Retail Mall', highlight: 'Hard Services & Fit-outs', icon: <FiShoppingBag className="text-xl text-purple-600" /> },
+    { name: 'Teleperformance', category: 'Global BPO Hub', highlight: '24/7 Critical Uptime', icon: <FiBriefcase className="text-xl text-blue-600" /> },
+    { name: 'Radisson', category: 'Hospitality', highlight: 'Planned Preventive', icon: <FiGlobe className="text-xl text-teal-600" /> },
+    { name: 'Marriott', category: 'Luxury Brand', highlight: 'Multi-system audits', icon: <FiLayers className="text-xl text-indigo-600" /> },
+    { name: 'Lulu Mall', category: 'Commercial Retail', highlight: 'Central Command Support', icon: <FiShoppingBag className="text-xl text-rose-600" /> },
   ];
 
   return (

@@ -229,13 +229,14 @@ export default function VigyaniLiveSim() {
           <button
             onClick={triggerAnomaly}
             disabled={anomalyTriggered}
-            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${
+            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
               anomalyTriggered
                 ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
                 : 'bg-red-50 text-sfm-red border border-red-200 hover:bg-sfm-red hover:text-white'
             }`}
           >
-            ⚠️ Simulate HVAC Failure
+            <FiAlertTriangle className="text-base" />
+            <span>Simulate HVAC Failure</span>
           </button>
           <button
             onClick={autoResolve}

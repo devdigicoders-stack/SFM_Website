@@ -31,6 +31,7 @@ export default function Services() {
       title: 'Electrical & Power',
       subtitle: 'Routine checks, DB dressing, switchgear repairs, panel calibrations, UPS tests, and rapid breakdown response.',
       icon: <FiZap className="text-3xl text-amber-600" />,
+      image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
       items: [
         'Routine distribution board (DB) dressing and thermal audits',
         'Main Switchgear, ACB & VCB repairs and contact servicing',
@@ -46,6 +47,7 @@ export default function Services() {
       title: 'HVAC Systems',
       subtitle: 'VRV/VRF diagnostics, chiller plant descaling, filter cycles, and compressor load analysis.',
       icon: <FiWind className="text-3xl text-sky-600" />,
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
       items: [
         'VRV / VRF diagnostic scanning & refrigerant loop balancing',
         'Water-cooled and air-cooled chiller plant chemical descaling',
@@ -61,6 +63,7 @@ export default function Services() {
       title: 'Plumbing & Public Health',
       subtitle: 'Hydro-pneumatic pumping overhauls, structural leakage detection, and drainage systems clearing.',
       icon: <FiDroplet className="text-3xl text-teal-600" />,
+      image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80',
       items: [
         'Hydro-pneumatic pumping system overhauls & VFD pump staging',
         'Non-invasive structural leakage detection & ultrasonic scans',
@@ -76,6 +79,7 @@ export default function Services() {
       title: 'Fire & Life Safety Overhauls',
       subtitle: 'Hydrant lines testing, integrated smoke detectors, sprinkler system pressure checks, and localized emergency logs.',
       icon: <FiAlertOctagon className="text-3xl text-sfm-red" />,
+      image: 'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=800&q=80',
       items: [
         'Main fire hydrant ring line hydrodynamic pressure tests',
         'Integrated addressable smoke & heat detector sensitivity checks',
@@ -91,6 +95,7 @@ export default function Services() {
       title: 'ELV & BMS Diagnostics',
       subtitle: 'Low-voltage circuit configurations, access control overhauls, CCTV network diagnostics, and building automation sensor calibrations.',
       icon: <FiCpu className="text-3xl text-purple-600" />,
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
       items: [
         'Building Management System (BMS) DDC controller calibrations',
         'IP CCTV network diagnostics, NVR storage health, and optical alignments',
@@ -106,6 +111,7 @@ export default function Services() {
       title: 'Civil & Fit-outs',
       subtitle: 'High-finish carpentry, ceiling fixes, glass glazing adjustments, masonry, and localized paint touch-ups.',
       icon: <FiLayers className="text-3xl text-emerald-600" />,
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
       items: [
         'High-finish carpentry, architectural door hardware, and acoustic seals',
         'Ceiling fixes, false ceiling grid realignment, and acoustic tiles',
@@ -121,6 +127,7 @@ export default function Services() {
       title: 'Luxury Soft Services & Housekeeping',
       subtitle: 'Premium housekeeping, high-touch luxury hospitality SOPs, and hospital grade hygiene.',
       icon: <FiShield className="text-3xl text-rose-600" />,
+      image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
       items: [
         'Mechanized single-disc floor scrubbing and industrial diamond polishing',
         'Hospital-grade terminal cleaning and OT/ICU disinfection protocols',
@@ -139,7 +146,7 @@ export default function Services() {
   return (
     <AnimatedPage>
       {/* Hero Header */}
-      <section className="relative py-16 bg-slate-50 border-b border-slate-200">
+      <section className="relative py-10 sm:py-12 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="w-12 h-1 bg-sfm-red rounded mb-3"></div>
           <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block mb-1">
@@ -172,52 +179,66 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {filteredServices.map(service => (
               <div
                 key={service.id}
-                className="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-card-hover flex flex-col justify-between"
+                className="rounded-3xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-card-hover flex flex-col justify-between overflow-hidden group"
               >
-                <div>
-                  <div className="flex items-start justify-between gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm">
-                      {service.icon}
-                    </div>
-                    <span className="text-xs font-bold px-3 py-1 rounded bg-white text-slate-700 border border-slate-200">
+                {/* Service Card Visual Banner */}
+                <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+                  
+                  <div className="absolute top-3 left-4">
+                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-white/95 text-slate-900 shadow">
                       {service.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-black text-sfm-navy font-display mb-1">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs font-semibold text-slate-600 mb-6">
-                    {service.subtitle}
-                  </p>
-
-                  <ul className="space-y-2.5">
-                    {service.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                        <FiCheckCircle className="text-emerald-600 mt-0.5 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="absolute bottom-3 left-4 w-12 h-12 rounded-2xl bg-white/95 backdrop-blur flex items-center justify-center shadow-lg">
+                    {service.icon}
+                  </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
-                  <span className="text-xs text-slate-500 font-medium">
-                    100% Verified Manpower & Background Checked
-                  </span>
-                  <Link
-                    to="/contact"
-                    className="text-xs font-bold text-sfm-red hover:text-sfm-crimson flex items-center gap-1.5 transition-colors"
-                  >
-                    <span>Request Service Scope</span>
-                    <FiArrowRight />
-                  </Link>
+                <div className="p-8 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-black text-sfm-navy font-display mb-1">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs font-semibold text-slate-600 mb-6">
+                      {service.subtitle}
+                    </p>
+
+                    <ul className="space-y-2.5">
+                      {service.items.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                          <FiCheckCircle className="text-emerald-600 mt-0.5 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+                    <span className="text-xs text-slate-500 font-medium">
+                      100% Verified ITI Manpower
+                    </span>
+                    <Link
+                      to="/contact"
+                      className="text-xs font-bold text-sfm-red hover:text-sfm-crimson flex items-center gap-1.5 transition-colors"
+                    >
+                      <span>Request Service Scope</span>
+                      <FiArrowRight />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -226,7 +247,7 @@ export default function Services() {
       </section>
 
       {/* Technical Expertise in Action (Slide 4 Deck 1) */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
+      <section className="py-10 sm:py-12 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             

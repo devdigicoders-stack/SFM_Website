@@ -48,7 +48,7 @@ export default function Blog() {
   return (
     <AnimatedPage>
       {/* Hero */}
-      <section className="relative py-16 bg-slate-50 border-b border-slate-200">
+      <section className="relative py-10 sm:py-12 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="w-12 h-1 bg-[#c1121f] rounded mb-3"></div>
           <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block mb-1">
@@ -81,7 +81,7 @@ export default function Blog() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {loading && blogs.length === 0 ? (
             <div className="text-center py-20 bg-slate-50 rounded-3xl border border-slate-200">
@@ -122,9 +122,9 @@ export default function Blog() {
                     <div>
                       {!article.image && (
                         <div className="flex items-center justify-between mb-4">
-                          <span className="text-2xl p-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                            📰
-                          </span>
+                          <div className="p-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm text-sky-600 text-xl">
+                            <FiFileText />
+                          </div>
                           <span className="text-[11px] font-bold px-2.5 py-1 rounded bg-white text-sky-800 border border-slate-200">
                             {article.category}
                           </span>

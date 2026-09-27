@@ -16,6 +16,8 @@ const DEFAULT_BANNERS = [
     subtitle: 'Pan-India B2B Hard Services & Engineering Excellence',
     tagline: 'June 2026 Corporate Profile',
     active: true,
+    badge: 'Critical Hard Engineering',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
     ctaText: 'Request Facility Health Audit',
     ctaLink: '/contact'
   },
@@ -25,8 +27,21 @@ const DEFAULT_BANNERS = [
     subtitle: 'A single accountable partner for premium technical and soft services, powered by AI.',
     tagline: 'SFM | SMS | VIGYANI.AI',
     active: true,
+    badge: 'Smart Facilities with AI',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',
     ctaText: 'Explore Vigyani.ai Hub',
     ctaLink: '/ifm-services'
+  },
+  {
+    id: 'ban-3',
+    title: '5-Star Luxury Hospitality & Commercial Care',
+    subtitle: 'Hospital-grade sanitization, precision MEP overhauls, and SLA-backed uptime.',
+    tagline: 'Taj Hotels & DLF Standard',
+    active: true,
+    badge: 'Tier-1 Reliability',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'View Client Portfolio',
+    ctaLink: '/clients'
   }
 ];
 
