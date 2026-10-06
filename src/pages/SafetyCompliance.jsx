@@ -24,21 +24,21 @@ export default function SafetyCompliance() {
       title: 'Mandatory Certified PPE',
       subtitle: '100% Compliance with ISI-Marked Gear',
       description: '100% compliance with ISI-marked insulated boots, face shields, gloves, and double-lanyard harnesses.',
-      icon: <FiShield className="text-3xl text-amber-600" />,
+      icon: <FiShield className="text-3xl text-sfm-navy" />,
       tag: 'ISI-Marked PPE'
     },
     {
       title: 'Daily Tool-Box Talks (TBT)',
       subtitle: 'Mandatory 10-Minute Briefing',
       description: 'Mandatory 10-minute briefing on site parameters conducted by supervisors before every single shift.',
-      icon: <FiUsers className="text-3xl text-sky-600" />,
+      icon: <FiUsers className="text-3xl text-sfm-red" />,
       tag: 'Daily TBT'
     },
     {
       title: 'Height Safety Guidelines',
       subtitle: 'Certified Modular Scaffolding',
       description: 'Certified modular scaffolding checks and safe-line anchorage for all tasks over 1.8 meters.',
-      icon: <FiAlertTriangle className="text-3xl text-purple-600" />,
+      icon: <FiAlertTriangle className="text-3xl text-sfm-navy" />,
       tag: 'Height Safety'
     }
   ];
@@ -92,8 +92,8 @@ export default function SafetyCompliance() {
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center gap-2 text-xs text-emerald-700 font-bold">
-                  <FiCheckCircle className="text-emerald-600" /> 100% Standardized Enforcement
+                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center gap-2 text-xs text-sfm-navy font-bold">
+                  <FiCheckCircle className="text-sfm-red" /> 100% Standardized Enforcement
                 </div>
               </div>
             ))}
@@ -104,7 +104,7 @@ export default function SafetyCompliance() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-8 space-y-4">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-700 block">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-sfm-red block">
                   Mitigating Zero Liability Transfer
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-black text-sfm-navy font-display">
@@ -116,22 +116,22 @@ export default function SafetyCompliance() {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                   <div className="p-4 rounded-xl bg-white border border-slate-200 text-center">
-                    <span className="text-xs font-bold text-emerald-700 block">100% ESIC & PF</span>
+                    <span className="text-xs font-bold text-sfm-navy block">100% ESIC & PF</span>
                     <span className="text-[11px] text-slate-500">Statutory Compliant</span>
                   </div>
                   <div className="p-4 rounded-xl bg-white border border-slate-200 text-center">
-                    <span className="text-xs font-bold text-sky-700 block">Corporate Insurance</span>
+                    <span className="text-xs font-bold text-sfm-navy block">Corporate Insurance</span>
                     <span className="text-[11px] text-slate-500">Zero Liability Transfer</span>
                   </div>
                   <div className="p-4 rounded-xl bg-white border border-slate-200 text-center">
-                    <span className="text-xs font-bold text-amber-700 block">Audit-Ready SOPs</span>
+                    <span className="text-xs font-bold text-sfm-red block">Audit-Ready SOPs</span>
                     <span className="text-[11px] text-slate-500">5-Star Benchmark</span>
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-4 flex flex-col items-center justify-center text-center p-6 rounded-2xl bg-white border border-slate-200">
-                <FiAward className="text-4xl text-amber-500 mb-2" />
+                <FiAward className="text-4xl text-sfm-red mb-2" />
                 <h4 className="text-slate-900 font-bold text-base font-display">Statutory Compliance Dossier</h4>
                 <p className="text-xs text-slate-500 mt-1 mb-4">
                   Request our verified insurance and compliance pack for your vendor onboarding team.

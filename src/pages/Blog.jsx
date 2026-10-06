@@ -122,10 +122,10 @@ export default function Blog() {
                     <div>
                       {!article.image && (
                         <div className="flex items-center justify-between mb-4">
-                          <div className="p-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm text-sky-600 text-xl">
+                          <div className="p-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm text-sfm-red text-xl">
                             <FiFileText />
                           </div>
-                          <span className="text-[11px] font-bold px-2.5 py-1 rounded bg-white text-sky-800 border border-slate-200">
+                          <span className="text-[11px] font-bold px-2.5 py-1 rounded bg-white text-sfm-navy border border-slate-200">
                             {article.category}
                           </span>
                         </div>

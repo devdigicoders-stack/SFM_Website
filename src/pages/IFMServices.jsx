@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedPage from '../components/AnimatedPage';
-import VigyaniLiveSim from '../components/VigyaniLiveSim';
+import AiMonitoringLiveSim from '../components/AiMonitoringLiveSim';
 import { 
   FiShield, 
   FiCpu, 
@@ -35,7 +35,7 @@ export default function IFMServices() {
       title: 'Real-Time AI Telemetry & Predictive Fault Diagnostics',
       subtitle: '72-hour anomaly detection on motor vibration, power harmonics, and temperature.',
       image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
-      tag: 'The Brain (Vigyani.ai)'
+      tag: 'AI-Powered Telemetry'
     }
   ];
 
@@ -66,28 +66,28 @@ export default function IFMServices() {
       sub: 'On-Call Repairs and Maintenance Services',
       desc: 'Rapid breakdown squads for central chiller plants, main HT/LT switchgears, hydro-pneumatic booster pumps, and architectural civil repairs.',
       image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
-      icon: <FiTool className="text-3xl text-amber-600" />,
+      icon: <FiTool className="text-3xl text-sfm-navy" />,
       points: [
         'Standardized flat rates across multi-city branches',
         'VRV/VRF and chiller chemical descaling',
         '24/7 on-call rapid breakdown triage',
         'Statutory fire hydrant ring tests & logs'
       ],
-      border: 'border-amber-200 bg-slate-50'
+      border: 'border-slate-200 bg-slate-50'
     },
     {
-      title: 'The Brain (Vigyani.ai)',
-      sub: 'AI Predictive Maintenance & Real-Time Dashboards',
-      desc: 'AI sensors predict equipment failure before it disrupts operations. Real-time dashboards allow property managers to verify every SOP instantly.',
+      title: 'AI-Powered Tracking & Monitoring',
+      sub: 'Digital Tools, Attendance, Checklists & Performance Tracking',
+      desc: 'Digital tools help track attendance, service delivery, task completion, checklists and operational performance, providing greater visibility and accountability across facilities.',
       image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80',
-      icon: <FiCpu className="text-3xl text-sky-600" />,
+      icon: <FiCpu className="text-3xl text-sfm-red" />,
       points: [
         'Predictive intelligence for 72h failure forecasts',
         'Real-time dashboards for C-Suite executives',
-        'Robotic sanitization and automated supply chains',
+        'Digital attendance and task completion audit',
         'Zero guest disruption & extended asset life'
       ],
-      border: 'border-sky-200 bg-slate-50'
+      border: 'border-slate-200 bg-slate-50'
     }
   ];
 
@@ -134,7 +134,7 @@ export default function IFMServices() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-display tracking-tight leading-[1.15]">
-              One Partner. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-amber-400">Total Accountability.</span>
+              One Partner. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">Total Accountability.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal max-w-3xl leading-relaxed">
@@ -152,11 +152,11 @@ export default function IFMServices() {
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">Staff Retention</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-2xl font-black text-emerald-400 font-display">Zero</span>
+                <span className="text-2xl font-black text-white font-display">Zero</span>
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">Liability Transfer</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-2xl font-black text-sky-400 font-display">72h</span>
+                <span className="text-2xl font-black text-slate-200 font-display">72h</span>
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">AI Failure Forecast</span>
               </div>
             </div>
@@ -236,7 +236,7 @@ export default function IFMServices() {
               Ecosystem Architecture
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-sfm-navy font-display">
-              Soul, Backbone, Brain (Vigyani.ai)
+              Soft Services, Engineering & AI Tracking
             </h2>
             <p className="text-slate-600 text-base mt-2">
               Combining local expertise, technical depth, and AI-enabled transparency into a unified Master SLA.
@@ -278,7 +278,7 @@ export default function IFMServices() {
                     <ul className="space-y-2.5 pt-4 border-t border-slate-200/80 text-xs sm:text-sm text-slate-700">
                       {t.points.map((pt, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <FiCheckCircle className="text-emerald-600 mt-0.5 shrink-0" />
+                          <FiCheckCircle className="text-sfm-red mt-0.5 shrink-0" />
                           <span>{pt}</span>
                         </li>
                       ))}
@@ -287,7 +287,7 @@ export default function IFMServices() {
 
                   <div className="mt-8 pt-4 border-t border-slate-200">
                     <span className="text-xs font-bold text-sfm-navy flex items-center gap-1">
-                      Guaranteed Single SLA Ownership <FiCheckCircle className="text-emerald-600" />
+                      Guaranteed Single SLA Ownership <FiCheckCircle className="text-sfm-red" />
                     </span>
                   </div>
                 </div>
@@ -361,7 +361,7 @@ export default function IFMServices() {
         </div>
       </section>
 
-      {/* ===================== VIGYANI.AI TELEMETRY SIMULATION ===================== */}
+      {/* ===================== AI-POWERED TRACKING & MONITORING ===================== */}
       <section className="py-10 sm:py-12 bg-slate-900 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
@@ -370,14 +370,14 @@ export default function IFMServices() {
               <FiCpu /> Proprietary IoT Anomaly Engine
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white font-display leading-tight">
-              Live Sensor Telemetry Simulation (Vigyani.ai)
+              AI-Powered Tracking & Monitoring
             </h2>
             <p className="text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
-              Moving from scheduled maintenance to telemetry-driven predictive overhauls. We monitor acoustic vibrations, thermal gradients, and motor current harmonics in real-time.
+              Digital tools help track attendance, service delivery, task completion, checklists and operational performance, providing greater visibility and accountability across facilities.
             </p>
           </div>
 
-          <VigyaniLiveSim />
+          <AiMonitoringLiveSim />
 
         </div>
       </section>

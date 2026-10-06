@@ -211,7 +211,7 @@ export default function AdminDashboard() {
                   </div>
                   <div className="text-left">
                     <strong className="text-xs font-bold text-sfm-navy block">Update WhatsApp / Phone</strong>
-                    <span className="text-[11px] text-slate-500">Pranjal Gupta: +91-8299726346</span>
+                    <span className="text-[11px] text-slate-500">Sales Team: +91-8299726346</span>
                   </div>
                 </div>
                 <FiArrowRight className="text-xs text-slate-400 group-hover:translate-x-1 transition-transform" />

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import AnimatedPage from '../components/AnimatedPage';
 import { 
   FiZap, 
@@ -12,17 +12,27 @@ import {
   FiCheckCircle, 
   FiArrowRight,
   FiTool,
-  FiFileText
+  FiFileText,
+  FiActivity
 } from 'react-icons/fi';
 
 export default function ServiceDetails() {
-  const [selectedService, setSelectedService] = useState('hvac');
+  const [searchParams] = useSearchParams();
+  const initialService = searchParams.get('service') || 'hvac';
+  const [selectedService, setSelectedService] = useState(initialService);
+
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam && services[serviceParam]) {
+      setSelectedService(serviceParam);
+    }
+  }, [searchParams]);
 
   const services = {
     hvac: {
       name: 'HVAC & Central Chiller Plants',
       tag: 'Hard Services • Thermal Engineering',
-      icon: <FiWind className="text-3xl text-sky-600" />,
+      icon: <FiWind className="text-3xl text-sfm-red" />,
       overview: 'Specialized management of complex HVAC units, air-cooled/water-cooled chillers, cooling towers, and variable refrigerant flow (VRV/VRF) loops to ensure 100% guest comfort and energy efficiency.',
       scope: [
         'VRV/VRF electronic error scanning & refrigerant loop balancing',
@@ -38,7 +48,7 @@ export default function ServiceDetails() {
     electrical: {
       name: 'Electrical Power & Switchgear Systems',
       tag: 'Hard Services • Critical Continuity',
-      icon: <FiZap className="text-3xl text-amber-600" />,
+      icon: <FiZap className="text-3xl text-sfm-navy" />,
       overview: 'End-to-end power grid management, routine DB dressing, switchgear maintenance, transformer servicing, and power factor optimization to eliminate electrical fire risks.',
       scope: [
         'Routine distribution board (DB) dressing and cable dressing',
@@ -54,7 +64,7 @@ export default function ServiceDetails() {
     plumbing: {
       name: 'Plumbing & Hydro-Pneumatics (PHE)',
       tag: 'Hard Services • Fluid Dynamics',
-      icon: <FiDroplet className="text-3xl text-teal-600" />,
+      icon: <FiDroplet className="text-3xl text-sfm-red" />,
       overview: 'Comprehensive hydro-pneumatic booster pumping management, structural leak detection, sewage treatment plant (STP) operation, and high-rise pressure balancing.',
       scope: [
         'Hydro-pneumatic pumping system overhauls & VFD staging calibration',
@@ -86,7 +96,7 @@ export default function ServiceDetails() {
     bms: {
       name: 'ELV & BMS Diagnostics',
       tag: 'Smart Buildings • Automation',
-      icon: <FiCpu className="text-3xl text-purple-600" />,
+      icon: <FiCpu className="text-3xl text-sfm-navy" />,
       overview: 'Building automation sensor calibrations, IP CCTV surveillance network health, RFID access controls, and integrated public address systems for modern commercial complexes.',
       scope: [
         'Building Management System (BMS) DDC controller calibrations',
@@ -102,7 +112,7 @@ export default function ServiceDetails() {
     civil: {
       name: 'Civil & Fit-outs',
       tag: 'Aesthetic Upkeep • Architectural Maintenance',
-      icon: <FiLayers className="text-3xl text-emerald-600" />,
+      icon: <FiLayers className="text-3xl text-sfm-red" />,
       overview: 'High-finish carpentry, architectural door hardware, ceiling repairs, facade spider glazing, and localized paint touch-ups to uphold five-star luxury standards.',
       scope: [
         'High-finish carpentry, door closers, and acoustic seal adjustments',
@@ -114,6 +124,57 @@ export default function ServiceDetails() {
       tools: ['Laser Level Gauges', 'Diamond Floor Polishing Machines', 'Scaffolding & Safe Harness Kits'],
       deliverables: 'Site snag-lists resolution certificates and civil maintenance signoff reports.',
       image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80'
+    },
+    hk: {
+      name: 'Housekeeping (HK) Services',
+      tag: 'Soft Services • Hygiene Management',
+      icon: <FiShield className="text-3xl text-sfm-navy" />,
+      overview: 'Professional housekeeping management across hospitality, corporate, and healthcare properties. Our trained HK squads maintain rigorous cleanliness, linen cycles, and 5-star hygiene audit standards with daily supervisor oversight.',
+      scope: [
+        'Deep cleaning of guest rooms, lobbies, and common areas to 5-star standards',
+        'Linen and laundry management, including rotation schedules and inventory control',
+        'Housekeeping staff deployment, training, and daily attendance supervision',
+        'Washroom hygiene audits, consumables replenishment, and fragrance scheduling',
+        'Post-event and post-construction cleaning for large commercial spaces',
+        'High-dusting, facade surface wiping, and glass panel polishing'
+      ],
+      tools: ['Industrial Scrubber Dryers', 'HEPA Vacuum Systems', 'Steam Sterilizers', 'Microfiber Mop Stations'],
+      deliverables: 'Daily housekeeping checklists, supervisor sign-off logs, monthly hygiene audit reports, and consumable consumption statements.',
+      image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80'
+    },
+    cafeteria: {
+      name: 'Cafeteria Management',
+      tag: 'Soft Services • Food & Beverage Operations',
+      icon: <FiTool className="text-3xl text-sfm-red" />,
+      overview: 'Complete cafeteria and food court operations management including kitchen equipment upkeep, FSSAI food safety compliance, menu planning, staff supervision, and vendor coordination for corporate campuses and hospitality facilities.',
+      scope: [
+        'End-to-end cafeteria operations: staffing, menu management, and food service',
+        'Kitchen equipment maintenance: combi ovens, fryers, refrigeration, and exhaust systems',
+        'FSSAI food safety compliance, hygiene audits, and pest-free kitchen standards',
+        'Vendor procurement management and raw material quality checks',
+        'Dining area upkeep, crockery management, and daily inventory tracking',
+        'Calorie-balanced menu planning for corporate wellness programs'
+      ],
+      tools: ['Commercial Kitchen Hygiene Kits', 'Temperature Data Loggers', 'Food Safety Sampling Kits', 'Gas Line Pressure Testers'],
+      deliverables: 'Daily meal consumption reports, FSSAI compliance logs, kitchen equipment maintenance schedules, and monthly vendor cost statements.',
+      image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=1000&q=80'
+    },
+    pestcontrol: {
+      name: 'Pest Control Services',
+      tag: 'Soft Services • Environmental Safety',
+      icon: <FiActivity className="text-3xl text-sfm-navy" />,
+      overview: 'Systematic and eco-certified pest management programs covering scheduled preventive treatments, emergency interventions, rodent baiting stations, and statutory compliance documentation for hotels, hospitals, corporate parks, and food facilities.',
+      scope: [
+        'Scheduled General Pest Control (GPC) using WHO-approved chemical agents',
+        'Rodent management with tamper-resistant bait stations and glue boards',
+        'Termite pre-treatment and post-construction anti-termite barriers',
+        'Fogging and ULV misting for mosquito control in outdoor zones',
+        'Cockroach gel baiting and targeted residual spray in food preparation zones',
+        'Statutory pest control log maintenance for FSSAI and health department audits'
+      ],
+      tools: ['ULV Cold Foggers', 'Thermal Fogging Machines', 'Rodent Tracking Powder Kits', 'Residual Spray Pumps'],
+      deliverables: 'Monthly pest activity trend reports, chemical usage certificates, statutory compliance dossiers, and emergency treatment call logs.',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=80'
     }
   };
 
@@ -204,7 +265,7 @@ export default function ServiceDetails() {
                       {cur.icon}
                     </div>
                     <div>
-                      <span className="text-xs font-bold text-sky-700 uppercase tracking-wider">{cur.tag}</span>
+                      <span className="text-xs font-bold text-sfm-red uppercase tracking-wider">{cur.tag}</span>
                       <h2 className="text-2xl sm:text-3xl font-black text-sfm-navy font-display">{cur.name}</h2>
                     </div>
                   </div>
@@ -222,7 +283,7 @@ export default function ServiceDetails() {
                   <ul className="space-y-3">
                     {cur.scope.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-slate-800 font-medium">
-                        <FiCheckCircle className="text-emerald-600 mt-0.5 shrink-0" />
+                        <FiCheckCircle className="text-sfm-red mt-0.5 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -246,7 +307,7 @@ export default function ServiceDetails() {
 
                   <div className="p-4 rounded-2xl bg-white border border-slate-200">
                     <h5 className="text-xs font-bold text-sfm-navy uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                      <FiFileText className="text-sky-600" /> Audit Deliverables
+                      <FiFileText className="text-sfm-navy" /> Audit Deliverables
                     </h5>
                     <p className="text-xs text-slate-600 leading-relaxed">{cur.deliverables}</p>
                   </div>

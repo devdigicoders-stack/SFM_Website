@@ -22,12 +22,12 @@ export default function Industries() {
       subtitle: 'Zero Guest Disruption & 5-Star Audit Readiness',
       clients: 'Taj Palace Lucknow, Novotel, Hyatt Regency, Ginger (IHCL Brand), Hilton Garden Inn, Radisson, Marriott',
       painPoints: 'Ballroom AC failure during events, noisy chiller vibrations, guest water pressure drops, unverified staff entering VIP suites.',
-      solution: 'Vigyani.ai 72h predictive vibration tracking, 100% background-verified ITI technicians, 24/7 dedicated on-site engineering triage, and luxury housekeeping SOPs.',
+      solution: 'AI-powered 72h predictive vibration tracking, 100% background-verified ITI technicians, 24/7 dedicated on-site engineering triage, and luxury housekeeping SOPs.',
       metrics: ['100% Critical Power Uptime', 'Zero Unplanned Outages', '100% Audit Score Adherence']
     },
     {
       name: 'Retail & Mega Shopping Malls',
-      icon: <FiShoppingBag className="text-2xl text-purple-600" />,
+      icon: <FiShoppingBag className="text-2xl text-sfm-navy" />,
       image: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=800&q=80',
       subtitle: 'High Footfall Hard Services & Public Safety',
       clients: 'Phoenix Palassio, Lulu Mall',
@@ -37,7 +37,7 @@ export default function Industries() {
     },
     {
       name: 'Corporate Campuses & BPO Tech Parks',
-      icon: <FiBriefcase className="text-2xl text-blue-600" />,
+      icon: <FiBriefcase className="text-2xl text-sfm-navy" />,
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
       subtitle: '24/7 Server Room Thermal Integrity & Power Continuity',
       clients: 'Teleperformance, Multi-tenant IT Hubs',
@@ -47,7 +47,7 @@ export default function Industries() {
     },
     {
       name: 'Healthcare & High-Stakes Hospitals',
-      icon: <FiActivity className="text-2xl text-emerald-600" />,
+      icon: <FiActivity className="text-2xl text-sfm-red" />,
       image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
       subtitle: 'Statutory Medical Gas, OT Hygiene & Life Safety',
       clients: 'Regional Hospital Networks, Specialized Diagnostic Labs',
@@ -57,7 +57,7 @@ export default function Industries() {
     },
     {
       name: 'Industrial & Manufacturing Plants',
-      icon: <FiTool className="text-2xl text-amber-600" />,
+      icon: <FiTool className="text-2xl text-sfm-navy" />,
       image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=800&q=80',
       subtitle: 'Heavy Electrical Transformers & Machine Uptime',
       clients: 'Regional Manufacturing Facilities, Warehouses',
@@ -141,7 +141,7 @@ export default function Industries() {
                     </div>
 
                     <div className="p-4 rounded-2xl bg-white border border-slate-200">
-                      <strong className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">
+                      <strong className="text-xs font-bold text-sfm-navy uppercase tracking-wider block mb-1">
                         The Spartans Solution:
                       </strong>
                       <p className="text-xs text-slate-600 leading-relaxed">
@@ -154,7 +154,7 @@ export default function Industries() {
                     <div className="flex flex-wrap gap-2">
                       {ind.metrics.map((m, i) => (
                         <span key={i} className="px-3 py-1.5 rounded-xl bg-slate-200/70 text-slate-800 text-xs font-bold flex items-center gap-1.5">
-                          <FiCheckCircle className="text-emerald-600" />
+                          <FiCheckCircle className="text-sfm-red" />
                           {m}
                         </span>
                       ))}

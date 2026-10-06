@@ -17,14 +17,14 @@ export default function ClientLogoSlider() {
   const clients = [
     { name: 'Taj Palace Lucknow', category: 'Luxury Flagship', highlight: 'Lead Technical FM Partner', icon: <FiShield className="text-xl text-[#c1121f]" /> },
     { name: 'Novotel', category: 'Hospitality', highlight: 'E&M Uptime', icon: <FiHome className="text-xl text-[#0b1d3a]" /> },
-    { name: 'Hyatt Regency', category: 'Luxury Hotel', highlight: 'HVAC & Power', icon: <FiStar className="text-xl text-amber-500" /> },
-    { name: 'Ginger (An IHCL Brand)', category: 'Hospitality Chain', highlight: 'Comprehensive Cover', icon: <FiFeather className="text-xl text-emerald-600" /> },
-    { name: 'Hilton Garden Inn', category: 'Hospitality', highlight: 'Electrical & Life Safety', icon: <FiCompass className="text-xl text-sky-600" /> },
-    { name: 'Phoenix Palassio', category: 'Mega Retail Mall', highlight: 'Hard Services & Fit-outs', icon: <FiShoppingBag className="text-xl text-purple-600" /> },
-    { name: 'Teleperformance', category: 'Global BPO Hub', highlight: '24/7 Critical Uptime', icon: <FiBriefcase className="text-xl text-blue-600" /> },
-    { name: 'Radisson', category: 'Hospitality', highlight: 'Planned Preventive', icon: <FiGlobe className="text-xl text-teal-600" /> },
-    { name: 'Marriott', category: 'Luxury Brand', highlight: 'Multi-system audits', icon: <FiLayers className="text-xl text-indigo-600" /> },
-    { name: 'Lulu Mall', category: 'Commercial Retail', highlight: 'Central Command Support', icon: <FiShoppingBag className="text-xl text-rose-600" /> },
+    { name: 'Hyatt Regency', category: 'Luxury Hotel', highlight: 'HVAC & Power', icon: <FiStar className="text-xl text-[#c1121f]" /> },
+    { name: 'Ginger (An IHCL Brand)', category: 'Hospitality Chain', highlight: 'Comprehensive Cover', icon: <FiFeather className="text-xl text-[#0b1d3a]" /> },
+    { name: 'Hilton Garden Inn', category: 'Hospitality', highlight: 'Electrical & Life Safety', icon: <FiCompass className="text-xl text-[#c1121f]" /> },
+    { name: 'Phoenix Palassio', category: 'Mega Retail Mall', highlight: 'Hard Services & Fit-outs', icon: <FiShoppingBag className="text-xl text-[#0b1d3a]" /> },
+    { name: 'Teleperformance', category: 'Global BPO Hub', highlight: '24/7 Critical Uptime', icon: <FiBriefcase className="text-xl text-[#c1121f]" /> },
+    { name: 'Radisson', category: 'Hospitality', highlight: 'Planned Preventive', icon: <FiGlobe className="text-xl text-[#0b1d3a]" /> },
+    { name: 'Marriott', category: 'Luxury Brand', highlight: 'Multi-system audits', icon: <FiLayers className="text-xl text-[#c1121f]" /> },
+    { name: 'Lulu Mall', category: 'Commercial Retail', highlight: 'Central Command Support', icon: <FiShoppingBag className="text-xl text-[#0b1d3a]" /> },
   ];
 
   return (
@@ -57,7 +57,7 @@ export default function ClientLogoSlider() {
                   {item.name}
                 </span>
                 <span className="text-[11px] text-slate-500 flex items-center gap-1 font-medium">
-                  <FiCheckCircle className="text-emerald-600 text-[10px]" />
+                  <FiCheckCircle className="text-sfm-red text-[10px]" />
                   {item.highlight}
                 </span>
               </div>

@@ -13,11 +13,11 @@ import About from './pages/About';
 import RMServices from './pages/RMServices';
 import IFMServices from './pages/IFMServices';
 import ServiceDetails from './pages/ServiceDetails';
-import Industries from './pages/Industries';
+import Sustainability from './pages/Sustainability';
 import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
 import ContactAudit from './pages/ContactAudit';
-import VigyaniAi from './pages/VigyaniAi';
+import AiMonitoring from './pages/AiMonitoring';
 import SafetyCompliance from './pages/SafetyCompliance';
 import ClientsPortfolio from './pages/ClientsPortfolio';
 
@@ -93,10 +93,18 @@ export default function App() {
             }
           />
           <Route
+            path="/sustainability"
+            element={
+              <PublicLayout>
+                <Sustainability />
+              </PublicLayout>
+            }
+          />
+          <Route
             path="/industries"
             element={
               <PublicLayout>
-                <Industries />
+                <Sustainability />
               </PublicLayout>
             }
           />
@@ -125,10 +133,18 @@ export default function App() {
             }
           />
           <Route
-            path="/vigyani-ai"
+            path="/ai-tracking"
             element={
               <PublicLayout>
-                <VigyaniAi />
+                <AiMonitoring />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/ai-monitoring"
+            element={
+              <PublicLayout>
+                <AiMonitoring />
               </PublicLayout>
             }
           />

@@ -25,7 +25,7 @@ export default function ManageBlog() {
   const [formData, setFormData] = useState({
     title: '',
     category: 'AI & Predictive FM',
-    author: 'Pranjal Gupta',
+    author: 'Spartans Facility Management — Sales Team',
     readTime: '4 min read',
     published: true,
     excerpt: '',
@@ -36,7 +36,7 @@ export default function ManageBlog() {
     setFormData({
       title: '',
       category: categories[0]?.name || 'AI & Predictive FM',
-      author: 'Pranjal Gupta',
+      author: 'Spartans Facility Management — Sales Team',
       readTime: '4 min read',
       published: true,
       excerpt: '',
@@ -260,7 +260,7 @@ export default function ManageBlog() {
                     type="text"
                     value={formData.author}
                     onChange={(e) => setFormData({ ...formData, author: e.target.value })}
-                    placeholder="Pranjal Gupta"
+                    placeholder="Spartans Facility Management — Sales Team"
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-semibold focus:outline-none focus:border-sfm-navy"
                   />
                 </div>

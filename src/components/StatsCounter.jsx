@@ -14,22 +14,22 @@ export default function StatsCounter() {
       value: '85%+',
       label: 'Staff Retention Rate',
       subtext: 'Exceptional training programs & ESIC/PF backing',
-      icon: <FiTrendingUp className="text-sky-600 text-xl" />,
-      border: 'hover:border-sky-400'
+      icon: <FiTrendingUp className="text-sfm-blue text-xl" />,
+      border: 'hover:border-sfm-blue'
     },
     {
       value: '15-20%',
       label: 'Overhead Cost Reduction',
       subtext: 'Vendor consolidation & CAPEX longevity through synergy',
-      icon: <FiActivity className="text-emerald-600 text-xl" />,
-      border: 'hover:border-emerald-400'
+      icon: <FiActivity className="text-sfm-navy text-xl" />,
+      border: 'hover:border-sfm-navy'
     },
     {
       value: '100%',
       label: 'LOTO & Safety Compliance',
       subtext: 'Zero liability transfer with ISI-marked insulated PPE',
-      icon: <FiShield className="text-amber-600 text-xl" />,
-      border: 'hover:border-amber-400'
+      icon: <FiShield className="text-sfm-red text-xl" />,
+      border: 'hover:border-sfm-red'
     },
   ];
 

@@ -50,7 +50,7 @@ export default function ContactAudit() {
     'ELV & BMS Diagnostics',
     'Civil & Architectural Fit-outs',
     'Luxury Housekeeping & Soft Services',
-    'Vigyani.ai IoT Predictive Hub'
+    'AI-Powered Tracking & Monitoring'
   ];
 
   const handleServiceToggle = (service) => {
@@ -116,14 +116,14 @@ export default function ContactAudit() {
                 
                 {submitted ? (
                   <div className="text-center py-12 space-y-6">
-                    <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 border border-emerald-300 flex items-center justify-center mx-auto text-4xl">
+                    <div className="w-20 h-20 rounded-full bg-red-50 text-sfm-red border border-red-200 flex items-center justify-center mx-auto text-4xl">
                       <FiCheckCircle />
                     </div>
                     <h3 className="text-3xl font-black text-sfm-navy font-display">
                       Audit Request Confirmed!
                     </h3>
                     <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-                      Thank you, <strong className="text-slate-900">{formData.contactPerson || 'Valued Partner'}</strong>. Our Central Command team from Lucknow {socials?.contactPerson ? <>headed by <strong className="text-slate-900">{socials.contactPerson}</strong> </> : ''}will connect with you shortly.
+                      Thank you, <strong className="text-slate-900">{formData.contactPerson || 'Valued Partner'}</strong>. The <strong className="text-slate-900">Spartans Facility Management — Sales Team</strong> will connect with you shortly.
                     </p>
                     <div className="p-4 rounded-2xl bg-white border border-slate-200 max-w-md mx-auto text-xs text-slate-600 space-y-1">
                       <div>Company: <span className="text-slate-900 font-bold">{formData.companyName || 'Registered Enterprise'}</span></div>
@@ -306,9 +306,11 @@ export default function ContactAudit() {
                     Contact Us
                   </span>
                   {socials?.contactPerson && (
-                    <h3 className="text-2xl font-black text-sfm-navy font-display">{socials.contactPerson}</h3>
+                    <h3 className="text-xl sm:text-2xl font-black text-sfm-navy font-display">
+                      {socials.contactPerson === 'Sales Team' ? 'Spartans Facility Management — Sales Team' : socials.contactPerson}
+                    </h3>
                   )}
-                  <p className="text-xs text-sky-700 font-bold">Sales & B2B Alliances</p>
+                  <p className="text-xs text-sfm-red font-bold">Sales & B2B Alliances</p>
                 </div>
 
                 <div className="space-y-4 text-sm">
@@ -326,7 +328,7 @@ export default function ContactAudit() {
 
                   {socials?.email && (
                     <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                      <FiMail className="text-sky-700 text-xl shrink-0" />
+                      <FiMail className="text-sfm-red text-xl shrink-0" />
                       <div>
                         <span className="text-[10px] text-slate-400 block uppercase font-bold">Direct Email</span>
                         <a href={`mailto:${socials.email}`} className="text-slate-800 font-medium hover:underline text-xs break-all">
@@ -338,7 +340,7 @@ export default function ContactAudit() {
 
                   {socials?.address && (
                     <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                      <FiMapPin className="text-amber-600 text-xl shrink-0 mt-0.5" />
+                      <FiMapPin className="text-sfm-navy text-xl shrink-0 mt-0.5" />
                       <div>
                         <span className="text-[10px] text-slate-400 block uppercase font-bold">Command Hub</span>
                         <span className="text-slate-700 text-xs">
@@ -357,33 +359,68 @@ export default function ContactAudit() {
               </div>
 
               {/* What Happens Next Card */}
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+              <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm text-left">
                 <h4 className="text-sm font-bold text-sfm-navy uppercase tracking-wider mb-4 flex items-center gap-2">
-                  <FiShield className="text-emerald-600" />
-                  What Happens During Audit?
+                  <FiShield className="text-sfm-red" />
+                  What Happens During the Audit?
                 </h4>
-                <ul className="space-y-2 text-xs text-slate-600">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sfm-navy"></span>
-                    <span>1. Non-invasive thermal scan of Main Distribution Boards</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sfm-navy"></span>
-                    <span>2. HVAC Chiller compressor load analysis & descaling check</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sfm-navy"></span>
-                    <span>3. Hydro-pneumatic pump staging & pressure tests</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sfm-navy"></span>
-                    <span>4. Fire Hydrant & NBC life safety statutory compliance check</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                    <span className="text-emerald-700 font-bold">5. Delivery of Comprehensive Health Dossier within 48h</span>
-                  </li>
-                </ul>
+                <div className="space-y-3.5 text-xs text-slate-700">
+                  <div className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-red-100 text-sfm-red font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">1</span>
+                    <div>
+                      <strong className="text-sfm-navy block font-bold">Manpower Optimization Review</strong>
+                      <span className="text-slate-600 leading-relaxed">Assess current deployment, shift patterns, productivity and identify opportunities to optimize manpower costs.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-red-100 text-sfm-red font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">2</span>
+                    <div>
+                      <strong className="text-sfm-navy block font-bold">Soft Services Assessment</strong>
+                      <span className="text-slate-600 leading-relaxed">Review housekeeping practices, deployment, SOPs, consumables, cleaning standards and service quality.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-red-100 text-sfm-red font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">3</span>
+                    <div>
+                      <strong className="text-sfm-navy block font-bold">Technical Operations Review</strong>
+                      <span className="text-slate-600 leading-relaxed">Evaluate maintenance practices, technician deployment, preventive maintenance and breakdown management.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-red-100 text-sfm-red font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">4</span>
+                    <div>
+                      <strong className="text-sfm-navy block font-bold">Cost & Resource Optimization</strong>
+                      <span className="text-slate-600 leading-relaxed">Identify opportunities to reduce avoidable operational costs, resource wastage and unnecessary expenses.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-red-100 text-sfm-red font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">5</span>
+                    <div>
+                      <strong className="text-sfm-navy block font-bold">SOP & Process Gap Assessment</strong>
+                      <span className="text-slate-600 leading-relaxed">Review existing processes and identify gaps in supervision, checklists, reporting and service delivery.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-red-100 text-sfm-red font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">6</span>
+                    <div>
+                      <strong className="text-sfm-navy block font-bold">Compliance & Safety Review</strong>
+                      <span className="text-slate-600 leading-relaxed">Assess key statutory, safety and operational compliance requirements relevant to the facility.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5 pt-2 border-t border-slate-200">
+                    <span className="w-5 h-5 rounded-full bg-sfm-red text-white font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">7</span>
+                    <div>
+                      <strong className="text-sfm-navy block font-bold">Actionable Optimization Report</strong>
+                      <span className="text-slate-700 leading-relaxed font-medium">Receive a comprehensive report with key observations, cost-saving opportunities and practical recommendations within 48 hours.</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>

@@ -34,9 +34,9 @@ export default function About() {
     },
     {
       title: '24/7 Central Telemetry Command Hub',
-      subtitle: 'Real-time telemetry diagnostics powered by Vigyani.ai IoT node array.',
+      subtitle: 'Real-time telemetry diagnostics powered by an advanced IoT node array.',
       image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Vigyani.ai AI Core'
+      badge: 'Smart AI Core'
     },
     {
       title: 'Luxury 5-Star Hospitality Soft Services',
@@ -73,28 +73,28 @@ export default function About() {
       tagline: 'On-Call Repairs & Maintenance Services',
       image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
       description: 'The specialized mechanical and breakdown wing capable of rapid on-call triage, heavy chiller overhaul, switchgear replacement, and multi-city emergency repairs.',
-      icon: <FiTool className="text-3xl text-amber-600" />,
+      icon: <FiTool className="text-3xl text-sfm-navy" />,
       points: [
         'Rapid Breakdown Triage & Dispatch',
         'HVAC & VRV/VRF Chiller descaling',
         'Hydro-pneumatic pumping overhauls',
         'Standardized flat rates across branches'
       ],
-      border: 'border-amber-200 bg-white'
+      border: 'border-slate-200 bg-white'
     },
     {
-      title: 'The Brain (Vigyani.ai)',
-      tagline: 'AI Predictive Maintenance & Real-Time Dashboards',
+      title: 'AI-Powered Tracking & Monitoring',
+      tagline: 'Digital Tools, Attendance, Checklists & Performance Tracking',
       image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
-      description: 'The intelligent technology core that monitors thousands of telemetry sensors in real time, predicting motor failures, electrical imbalances, and thermal spikes before human notice.',
-      icon: <FiCpu className="text-3xl text-sky-600" />,
+      description: 'Digital tools help track attendance, service delivery, task completion, checklists and operational performance, providing greater visibility and accountability across facilities.',
+      icon: <FiCpu className="text-3xl text-sfm-red" />,
       points: [
         'AI vibration & thermal anomaly detection',
         'Real-time dashboards for C-Suite executives',
         'Automated digital ticketing & SOP verification',
-        'Robotic sanitization & supply chain sync'
+        'Task completion & operational accountability'
       ],
-      border: 'border-sky-200 bg-white'
+      border: 'border-slate-200 bg-white'
     }
   ];
 
@@ -116,11 +116,11 @@ export default function About() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-display tracking-tight leading-[1.15]">
-              One Partner. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-amber-400">Total Accountability.</span>
+              One Partner. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">Total Accountability.</span>
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-normal max-w-3xl leading-relaxed">
-              Spartans Facility Management (SFM) combines luxury 5-star hospitality soft services, heavy mechanical & electrical breakdown triage (SMS), and real-time AI predictive telemetry (Vigyani.ai) into a single SLA-driven ecosystem.
+              Spartans Facility Management (SFM) combines luxury 5-star hospitality soft services, heavy mechanical & electrical breakdown triage (SMS), and real-time AI-powered tracking and monitoring into a single SLA-driven ecosystem.
             </p>
 
             {/* Quick Hero Highlights */}
@@ -134,11 +134,11 @@ export default function About() {
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">ITI / Diploma Cadre</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-2xl font-black text-emerald-400 font-display">85%+</span>
+                <span className="text-2xl font-black text-white font-display">85%+</span>
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">Staff Retention</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-2xl font-black text-sky-400 font-display">24/7</span>
+                <span className="text-2xl font-black text-slate-200 font-display">24/7</span>
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">Emergency Triage</span>
               </div>
             </div>
@@ -292,10 +292,10 @@ export default function About() {
               Ecosystem
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-sfm-navy font-display">
-              Soul, Backbone, Brain (Vigyani.ai)
+              Soft Services, Engineering & AI Tracking
             </h2>
             <p className="text-slate-600 text-base mt-2">
-              SFM | SMS | VIGYANI.AI — The triad that delivers zero downtime and total accountability.
+              SFM (Hospitality) | SMS (Breakdown Triage) | AI-Powered Tracking — Delivering zero downtime and total accountability.
             </p>
           </div>
 
@@ -335,7 +335,7 @@ export default function About() {
                     <div className="space-y-2.5 pt-4 border-t border-slate-200/80">
                       {pillar.points.map((pt, i) => (
                         <div key={i} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
-                          <FiCheckCircle className="text-emerald-600 shrink-0 mt-0.5" />
+                          <FiCheckCircle className="text-sfm-red shrink-0 mt-0.5" />
                           <span>{pt}</span>
                         </div>
                       ))}
@@ -344,7 +344,7 @@ export default function About() {
 
                   <div className="mt-8 pt-4 border-t border-slate-200/80 flex items-center justify-between">
                     <span className="text-xs font-bold text-sfm-navy flex items-center gap-1">
-                      Full SLA Ownership <FiCheckCircle className="text-emerald-600" />
+                      Full SLA Ownership <FiCheckCircle className="text-sfm-red" />
                     </span>
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#c1121f]">
                       Enterprise Tier
@@ -436,7 +436,7 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-amber-600 mb-1.5 inline-block">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-[#c1121f] mb-1.5 inline-block">
                   Electrical Infrastructure
                 </span>
                 <h4 className="text-base font-bold text-gray-300 font-display">Thermal Thermography & Breaker Audits</h4>
@@ -453,7 +453,7 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-emerald-600 mb-1.5 inline-block">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-[#0b1d3a] border border-white/20 mb-1.5 inline-block">
                   Luxury Soft Services
                 </span>
                 <h4 className="text-base font-bold text-gray-300 font-display">Hospitality Gold Standard SOPs</h4>
@@ -464,13 +464,13 @@ export default function About() {
             <div className="relative rounded-3xl overflow-hidden group shadow-card border border-slate-200 bg-slate-900 aspect-[4/3]">
               <img
                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
-                alt="Vigyani.ai IoT Command Center"
+                alt="AI Telemetry Command Center"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-sky-600 mb-1.5 inline-block">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-[#c1121f] mb-1.5 inline-block">
                   AI Telemetry Hub
                 </span>
                 <h4 className="text-base font-bold text-gray-300 font-display">Central Command & Dispatch (Lucknow)</h4>
@@ -487,7 +487,7 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-red-700 mb-1.5 inline-block">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-[#0b1d3a] border border-white/20 mb-1.5 inline-block">
                   Life Safety Systems
                 </span>
                 <h4 className="text-base font-bold text-gray-300 font-display">Hydrant Rings & Smoke Detection NBC Audits</h4>
@@ -504,7 +504,7 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-teal-600 mb-1.5 inline-block">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded bg-[#c1121f] mb-1.5 inline-block">
                   Hydro-Pneumatics & STP
                 </span>
                 <h4 className="text-base font-bold text-gray-300 font-display">Booster Pumping & High-Rise PHE</h4>

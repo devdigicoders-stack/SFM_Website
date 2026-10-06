@@ -30,7 +30,7 @@ export default function Services() {
       category: 'hard',
       title: 'Electrical & Power',
       subtitle: 'Routine checks, DB dressing, switchgear repairs, panel calibrations, UPS tests, and rapid breakdown response.',
-      icon: <FiZap className="text-3xl text-amber-600" />,
+      icon: <FiZap className="text-3xl text-sfm-red" />,
       image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
       items: [
         'Routine distribution board (DB) dressing and thermal audits',
@@ -46,7 +46,7 @@ export default function Services() {
       category: 'hard',
       title: 'HVAC Systems',
       subtitle: 'VRV/VRF diagnostics, chiller plant descaling, filter cycles, and compressor load analysis.',
-      icon: <FiWind className="text-3xl text-sky-600" />,
+      icon: <FiWind className="text-3xl text-sfm-blue" />,
       image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
       items: [
         'VRV / VRF diagnostic scanning & refrigerant loop balancing',
@@ -62,7 +62,7 @@ export default function Services() {
       category: 'hard',
       title: 'Plumbing & Public Health',
       subtitle: 'Hydro-pneumatic pumping overhauls, structural leakage detection, and drainage systems clearing.',
-      icon: <FiDroplet className="text-3xl text-teal-600" />,
+      icon: <FiDroplet className="text-3xl text-sfm-navy" />,
       image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80',
       items: [
         'Hydro-pneumatic pumping system overhauls & VFD pump staging',
@@ -94,7 +94,7 @@ export default function Services() {
       category: 'safety',
       title: 'ELV & BMS Diagnostics',
       subtitle: 'Low-voltage circuit configurations, access control overhauls, CCTV network diagnostics, and building automation sensor calibrations.',
-      icon: <FiCpu className="text-3xl text-purple-600" />,
+      icon: <FiCpu className="text-3xl text-sfm-blue" />,
       image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
       items: [
         'Building Management System (BMS) DDC controller calibrations',
@@ -110,7 +110,7 @@ export default function Services() {
       category: 'soft',
       title: 'Civil & Fit-outs',
       subtitle: 'High-finish carpentry, ceiling fixes, glass glazing adjustments, masonry, and localized paint touch-ups.',
-      icon: <FiLayers className="text-3xl text-emerald-600" />,
+      icon: <FiLayers className="text-3xl text-sfm-navy" />,
       image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
       items: [
         'High-finish carpentry, architectural door hardware, and acoustic seals',
@@ -126,7 +126,7 @@ export default function Services() {
       category: 'soft',
       title: 'Luxury Soft Services & Housekeeping',
       subtitle: 'Premium housekeeping, high-touch luxury hospitality SOPs, and hospital grade hygiene.',
-      icon: <FiShield className="text-3xl text-rose-600" />,
+      icon: <FiShield className="text-3xl text-sfm-red" />,
       image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
       items: [
         'Mechanized single-disc floor scrubbing and industrial diamond polishing',
@@ -220,7 +220,7 @@ export default function Services() {
                     <ul className="space-y-2.5">
                       {service.items.map((item, i) => (
                         <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                          <FiCheckCircle className="text-emerald-600 mt-0.5 shrink-0" />
+                          <FiCheckCircle className="text-sfm-red mt-0.5 shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}

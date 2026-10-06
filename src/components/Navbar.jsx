@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: 'R&M Services', path: '/rm-services' },
     { name: 'IFM Services', path: '/ifm-services', badge: 'AI' },
     { name: 'Service Details', path: '/service-details' },
-    { name: 'Industries', path: '/industries' },
+    { name: 'Sustainability', path: '/sustainability', badge: 'ESG' },
     { name: 'Blog', path: '/blogs' },
     { name: 'Contact Us', path: '/contact' },
   ];
@@ -36,10 +36,10 @@ export default function Navbar() {
           <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
             <div className="flex items-center gap-4">
               {homepage?.milestone3 && (
-                <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
+                <span className="flex items-center gap-1.5 text-red-400 font-medium">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c1121f]"></span>
                   </span>
                   {homepage.milestone3}
                 </span>
@@ -65,7 +65,7 @@ export default function Navbar() {
               )}
               {socials?.email && (
                 <a href={`mailto:${socials.email}`} className="text-slate-200 hover:text-white transition-colors hidden sm:flex items-center gap-1.5 font-medium">
-                  <FiMail className="text-sky-400" /> {socials.email}
+                  <FiMail className="text-red-400" /> {socials.email}
                 </a>
               )}
             </div>
@@ -97,7 +97,7 @@ export default function Navbar() {
                   >
                     {link.name}
                     {link.badge && (
-                      <span className="px-1.5 py-0.2 text-[9px] font-extrabold uppercase rounded bg-sky-100 text-sky-800 border border-sky-200">
+                      <span className="px-1.5 py-0.2 text-[9px] font-extrabold uppercase rounded bg-red-50 text-sfm-red border border-red-200">
                         {link.badge}
                       </span>
                     )}
@@ -137,7 +137,7 @@ export default function Navbar() {
                 <span className="flex items-center gap-2">
                   {link.name}
                   {link.badge && (
-                    <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-sky-100 text-sky-800">
+                    <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-red-50 text-sfm-red border border-red-200">
                       {link.badge}
                     </span>
                   )}

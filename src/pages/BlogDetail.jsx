@@ -118,7 +118,7 @@ export default function BlogDetail() {
 
           <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-500 mt-6 pt-6 border-t border-slate-200">
             <span className="flex items-center gap-1.5 text-slate-800 font-bold">
-              <FiUser className="text-[#c1121f]" /> By {article.author || 'Pranjal Gupta'}
+              <FiUser className="text-[#c1121f]" /> By {article.author && article.author !== 'Pranjal Gupta' ? article.author : 'Spartans Facility Management — Sales Team'}
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
@@ -238,7 +238,7 @@ export default function BlogDetail() {
                           />
                         </div>
                       )}
-                      <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded bg-white text-sky-800 border border-slate-200 inline-block mb-3">
+                      <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded bg-white text-sfm-navy border border-slate-200 inline-block mb-3">
                         {item.category}
                       </span>
                       <h4 className="text-sm font-bold text-[#0b1d3a] group-hover:text-[#c1121f] transition-colors leading-snug line-clamp-2">

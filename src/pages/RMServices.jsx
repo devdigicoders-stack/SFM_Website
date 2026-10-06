@@ -57,7 +57,7 @@ export default function RMServices() {
     {
       title: 'Electrical & Power Systems',
       headline: 'Routine checks, DB dressing, switchgear repairs, panel calibrations, UPS tests, and rapid breakdown response.',
-      icon: <FiZap className="text-3xl text-amber-600" />,
+      icon: <FiZap className="text-3xl text-sfm-red" />,
       image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
       features: [
         'Main Switchgear, ACB & VCB repairs & contact calibrations',
@@ -71,7 +71,7 @@ export default function RMServices() {
     {
       title: 'HVAC & Chiller Plant Systems',
       headline: 'VRV/VRF diagnostics, chiller plant descaling, filter cycles, and compressor load analysis.',
-      icon: <FiWind className="text-3xl text-sky-600" />,
+      icon: <FiWind className="text-3xl text-sfm-navy" />,
       image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
       features: [
         'VRV/VRF diagnostic scanning and computerized refrigerant balancing',
@@ -85,7 +85,7 @@ export default function RMServices() {
     {
       title: 'Plumbing & Public Health (PHE)',
       headline: 'Hydro-pneumatic pumping overhauls, structural leakage detection, and drainage systems clearing.',
-      icon: <FiDroplet className="text-3xl text-teal-600" />,
+      icon: <FiDroplet className="text-3xl text-sfm-red" />,
       image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80',
       features: [
         'Hydro-pneumatic pumping system overhauls & VFD pump staging',
@@ -113,7 +113,7 @@ export default function RMServices() {
     {
       title: 'ELV & BMS Diagnostics',
       headline: 'Low-voltage circuit configs, access control overhauls, CCTV network diagnostics, and building automation.',
-      icon: <FiCpu className="text-purple-600" />,
+      icon: <FiCpu className="text-sfm-navy" />,
       image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
       features: [
         'Building Management System (BMS) DDC controller calibrations',
@@ -127,7 +127,7 @@ export default function RMServices() {
     {
       title: 'Civil & Architectural Fit-outs',
       headline: 'High-finish carpentry, ceiling fixes, glass glazing adjustments, masonry, and localized paint touch-ups.',
-      icon: <FiLayers className="text-emerald-600" />,
+      icon: <FiLayers className="text-sfm-red" />,
       image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
       features: [
         'High-finish carpentry, architectural door hardware & acoustic seals',
@@ -156,7 +156,7 @@ export default function RMServices() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-display tracking-tight leading-[1.15]">
-              Precision Engineering & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-amber-400">On-Call Repairs</span>
+              Precision Engineering & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">On-Call Repairs</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal max-w-3xl leading-relaxed">
@@ -174,11 +174,11 @@ export default function RMServices() {
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">ITI / Diploma Cadre</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-2xl font-black text-emerald-400 font-display">15-20%</span>
+                <span className="text-2xl font-black text-white font-display">15-20%</span>
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">OpEx Cost Reduction</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-2xl font-black text-sky-400 font-display">24/7</span>
+                <span className="text-2xl font-black text-slate-200 font-display">24/7</span>
                 <span className="text-[11px] text-slate-400 block mt-0.5 font-medium">Central Telemetry</span>
               </div>
             </div>
@@ -306,7 +306,7 @@ export default function RMServices() {
                     <ul className="space-y-2.5">
                       {srv.features.map((f, i) => (
                         <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
-                          <FiCheckCircle className="text-emerald-600 mt-0.5 shrink-0" />
+                          <FiCheckCircle className="text-sfm-red mt-0.5 shrink-0" />
                           <span>{f}</span>
                         </li>
                       ))}
