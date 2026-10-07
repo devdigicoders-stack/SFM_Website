@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SfmLogo from './SfmLogo';
 import { usePublicData } from '../context/PublicDataContext';
@@ -10,10 +10,33 @@ import {
   FiChevronRight 
 } from 'react-icons/fi';
 
+const PARTNER_CLIENTS = [
+  { name: 'Taj Palace', location: 'Lucknow' },
+  { name: 'Novotel', location: 'Hospitality' },
+  { name: 'Hyatt Regency', location: 'Luxury Suites' },
+  { name: 'Hilton Garden Inn', location: 'MEP / IFM' },
+  { name: 'Ginger (IHCL Brand)', location: 'Pan-Regional' },
+  { name: 'Phoenix Palassio', location: 'Retail Hub' },
+  { name: 'Lulu Mall', location: 'Commercial Complex' },
+  { name: 'Teleperformance', location: 'BPO Tech Center' },
+  { name: 'Radisson', location: 'Hard Services' },
+  { name: 'Marriott', location: 'Comprehensive FM' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentClientIdx, setCurrentClientIdx] = useState(0);
   const location = useLocation();
   const { socials, homepage } = usePublicData();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentClientIdx((prev) => (prev + 1) % PARTNER_CLIENTS.length);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, []);
+
+  const clientList = PARTNER_CLIENTS;
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -44,12 +67,21 @@ export default function Navbar() {
                   {homepage.milestone3}
                 </span>
               )}
-              {homepage?.milestone3 && homepage?.milestone2 && (
+              {homepage?.milestone3 && (homepage?.milestone2 || clientList.length > 0) && (
                 <span className="hidden md:inline-block text-slate-600">|</span>
               )}
-              {homepage?.milestone2 && (
-                <span className="hidden md:inline-flex items-center gap-1 text-slate-300">
-                  {homepage.milestone2}
+              {(homepage?.milestone2 || clientList.length > 0) && (
+                <span className="hidden md:inline-flex items-center gap-1.5 text-slate-300 transition-all duration-500">
+                  <span className="text-slate-400 font-normal">Technical Partner:</span>
+                  <span 
+                    key={currentClientIdx}
+                    className="font-semibold text-white animate-fade-in inline-flex items-center gap-1"
+                  >
+                    {clientList[currentClientIdx]?.name || homepage?.milestone2?.replace(/^Lead Technical Partner:\s*/i, '') || homepage?.milestone2}
+                    {clientList[currentClientIdx]?.location && (
+                      <span className="text-[10px] text-red-300 font-normal">({clientList[currentClientIdx].location})</span>
+                    )}
+                  </span>
                 </span>
               )}
             </div>
