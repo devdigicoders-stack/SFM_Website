@@ -4,9 +4,11 @@ import logoImg from '../assets/logo.jpg';
 
 export default function SfmLogo({ size = 'md', className = '' }) {
   const sizeClasses = {
+    xs: 'h-8 max-h-8',
     sm: 'h-10 max-h-10',
     md: 'h-14 max-h-14',
-    lg: 'h-20 max-h-20'
+    lg: 'h-20 max-h-20',
+    xl: 'h-24 max-h-24'
   };
 
   const selectedClass = sizeClasses[size] || sizeClasses.md;
