@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/main-logo.png';
 
 export default function SfmLogo({ size = 'md', className = '' }) {
   const sizeClasses = {
@@ -18,7 +18,7 @@ export default function SfmLogo({ size = 'md', className = '' }) {
       <img
         src={logoImg}
         alt="Spartans Facility Management"
-        className={`${selectedClass} w-auto object-contain mix-blend-multiply transition-transform duration-200 group-hover:scale-105`}
+        className={`${selectedClass} w-auto object-contain  transition-transform duration-200 group-hover:scale-105`}
       />
     </Link>
   );
