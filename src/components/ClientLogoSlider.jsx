@@ -1,31 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { PORTFOLIO_CLIENTS } from '../data/portfolioClients.jsx';
 import { 
   FiCheckCircle, 
   FiAward, 
-  FiCompass, 
-  FiGlobe, 
-  FiStar, 
-  FiShoppingBag, 
-  FiBriefcase, 
-  FiFeather, 
-  FiLayers, 
-  FiHome, 
-  FiShield 
+  FiArrowRight 
 } from 'react-icons/fi';
 
 export default function ClientLogoSlider() {
-  const clients = [
-    { name: 'Taj Palace Lucknow', category: 'Luxury Flagship', highlight: 'Lead Technical FM Partner', icon: <FiShield className="text-xl text-[#c1121f]" /> },
-    { name: 'Novotel', category: 'Hospitality', highlight: 'E&M Uptime', icon: <FiHome className="text-xl text-[#0b1d3a]" /> },
-    { name: 'Hyatt Regency', category: 'Luxury Hotel', highlight: 'HVAC & Power', icon: <FiStar className="text-xl text-[#c1121f]" /> },
-    { name: 'Ginger (An IHCL Brand)', category: 'Hospitality Chain', highlight: 'Comprehensive Cover', icon: <FiFeather className="text-xl text-[#0b1d3a]" /> },
-    { name: 'Hilton Garden Inn', category: 'Hospitality', highlight: 'Electrical & Life Safety', icon: <FiCompass className="text-xl text-[#c1121f]" /> },
-    { name: 'Phoenix Palassio', category: 'Mega Retail Mall', highlight: 'Hard Services & Fit-outs', icon: <FiShoppingBag className="text-xl text-[#0b1d3a]" /> },
-    { name: 'Teleperformance', category: 'Global BPO Hub', highlight: '24/7 Critical Uptime', icon: <FiBriefcase className="text-xl text-[#c1121f]" /> },
-    { name: 'Radisson', category: 'Hospitality', highlight: 'Planned Preventive', icon: <FiGlobe className="text-xl text-[#0b1d3a]" /> },
-    { name: 'Marriott', category: 'Luxury Brand', highlight: 'Multi-system audits', icon: <FiLayers className="text-xl text-[#c1121f]" /> },
-    { name: 'Lulu Mall', category: 'Commercial Retail', highlight: 'Central Command Support', icon: <FiShoppingBag className="text-xl text-[#0b1d3a]" /> },
-  ];
+  const clients = PORTFOLIO_CLIENTS;
 
   return (
     <section className="py-14 bg-slate-50 border-y border-slate-200 relative overflow-hidden">
@@ -37,33 +20,51 @@ export default function ClientLogoSlider() {
           Our Valued Client Portfolio
         </h3>
         <p className="text-xs sm:text-sm uppercase font-bold tracking-widest text-slate-500 mt-1">
-          Proven Track Record Across Key Commercial Verticals
+          Proven Track Record Across Key Commercial & Hospitality Verticals
         </p>
       </div>
 
-      {/* Marquee Track */}
-      <div className="relative w-full overflow-hidden flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <div className="flex shrink-0 gap-5 animate-marquee py-2">
+      {/* Marquee Track with ALL Client Portfolio Brands */}
+      <div className="relative w-full overflow-hidden flex [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="flex shrink-0 gap-5 animate-marquee hover:[animation-play-state:paused] py-2">
           {clients.concat(clients).map((item, idx) => (
-            <div
+            <Link
               key={idx}
-              className="flex items-center gap-3.5 px-6 py-4 rounded-2xl bg-white border border-slate-200 hover:border-sfm-red/50 hover:shadow-card-hover transition-all duration-300 group min-w-[250px] shadow-sm"
+              to="/clients"
+              className="flex items-center gap-3.5 px-6 py-4 rounded-2xl bg-white border border-slate-200 hover:border-sfm-red/50 hover:shadow-card-hover transition-all duration-300 group min-w-[270px] shadow-sm cursor-pointer"
+              title={`${item.name} - Click to view portfolio details`}
             >
-              <div className="text-2xl p-2.5 rounded-xl bg-slate-50 border border-slate-100 group-hover:scale-110 transition-transform">
+              <div className="text-2xl p-2.5 rounded-xl bg-slate-50 border border-slate-100 group-hover:scale-110 group-hover:bg-red-50 transition-all shrink-0">
                 {item.icon}
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-slate-900 text-sm font-display tracking-tight group-hover:text-sfm-red transition-colors">
-                  {item.name}
+              <div className="flex flex-col min-w-0">
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <span className="font-bold text-slate-900 text-sm font-display tracking-tight group-hover:text-sfm-red transition-colors truncate">
+                    {item.name}
+                  </span>
+                </div>
+                <span className="text-[11px] text-slate-500 flex items-center gap-1 font-medium truncate">
+                  <FiCheckCircle className="text-sfm-red text-[11px] shrink-0" />
+                  <span className="truncate">{item.highlight}</span>
                 </span>
-                <span className="text-[11px] text-slate-500 flex items-center gap-1 font-medium">
-                  <FiCheckCircle className="text-sfm-red text-[10px]" />
-                  {item.highlight}
+                <span className="text-[10px] text-slate-400 mt-0.5 font-semibold">
+                  {item.category} • {item.location}
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
+      </div>
+
+      {/* View Portfolio Button Below Slider */}
+      <div className="mt-8 text-center">
+        <Link
+          to="/clients"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-white border border-slate-300 hover:border-sfm-red text-slate-800 hover:text-sfm-red font-bold text-xs shadow-xs hover:shadow-sm transition-all"
+        >
+          <span>Explore All {PORTFOLIO_CLIENTS.length} Enterprise Client Engagements</span>
+          <FiArrowRight className="text-xs" />
+        </Link>
       </div>
     </section>
   );

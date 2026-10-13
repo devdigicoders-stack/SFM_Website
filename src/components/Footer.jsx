@@ -14,7 +14,9 @@ export default function Footer() {
           
           {/* Company Brand Column */}
           <div className="lg:col-span-2 space-y-4">
-            <SfmLogo size="md" showTagline={true} lightMode={true} />
+            <div className="inline-block p-3 sm:p-4 rounded-2xl  transition-all">
+              <SfmLogo size="xl" />
+            </div>
             
             {homepage?.heroDescription && (
               <p className="text-sm text-slate-600 leading-relaxed max-w-sm pt-2">

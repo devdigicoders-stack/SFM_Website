@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SfmLogo from './SfmLogo';
 import { usePublicData } from '../context/PublicDataContext';
+import { FEATURED_5_CLIENTS } from '../data/portfolioClients.jsx';
 import { 
   FiPhoneCall, 
   FiMail, 
@@ -10,37 +11,26 @@ import {
   FiChevronRight 
 } from 'react-icons/fi';
 
-const PARTNER_CLIENTS = [
-  { name: 'Taj Palace', location: 'Lucknow' },
-  { name: 'Novotel', location: 'Hospitality' },
-  { name: 'Hyatt Regency', location: 'Luxury Suites' },
-  { name: 'Hilton Garden Inn', location: 'MEP / IFM' },
-  { name: 'Ginger (IHCL Brand)', location: 'Pan-Regional' },
-  { name: 'Phoenix Palassio', location: 'Retail Hub' },
-  { name: 'Lulu Mall', location: 'Commercial Complex' },
-  { name: 'Teleperformance', location: 'BPO Tech Center' },
-  { name: 'Radisson', location: 'Hard Services' },
-  { name: 'Marriott', location: 'Comprehensive FM' },
-];
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentClientIdx, setCurrentClientIdx] = useState(0);
   const location = useLocation();
   const { socials, homepage } = usePublicData();
 
+  // Cycle ONLY through the 5 Featured Clients as requested
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentClientIdx((prev) => (prev + 1) % PARTNER_CLIENTS.length);
-    }, 3200);
+      setCurrentClientIdx((prev) => (prev + 1) % FEATURED_5_CLIENTS.length);
+    }, 2800);
     return () => clearInterval(timer);
   }, []);
 
-  const clientList = PARTNER_CLIENTS;
+  const currentClient = FEATURED_5_CLIENTS[currentClientIdx];
 
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
+    { name: 'Clients Portfolio', path: '/clients', badge: '13+' },
     { name: 'R&M Services', path: '/rm-services' },
     { name: 'IFM Services', path: '/ifm-services', badge: 'AI' },
     { name: 'Service Details', path: '/service-details' },
@@ -53,59 +43,74 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-50 w-full bg-white shadow-sm border-b border-slate-200">
-      {/* Top Notification Bar - Solid & High Contrast */}
-      {(homepage?.milestone3 || homepage?.milestone2 || socials?.phone || socials?.email) && (
-        <div className="bg-[#0b1d3a] text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
-          <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-            <div className="flex items-center gap-4">
-              {homepage?.milestone3 && (
-                <span className="flex items-center gap-1.5 text-red-400 font-medium">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c1121f]"></span>
-                  </span>
-                  {homepage.milestone3}
+      {/* Top Header Bar - Cycling ONLY the 5 Featured Clients at 'Technical Partner:' */}
+      <div className="bg-[#0b1d3a] text-slate-200 text-xs py-2 px-3 sm:px-4 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+          
+          <div className="flex items-center gap-3 sm:gap-4">
+            {homepage?.milestone3 && (
+              <span className="flex items-center gap-1.5 text-red-400 font-medium shrink-0">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c1121f]"></span>
                 </span>
-              )}
-              {homepage?.milestone3 && (homepage?.milestone2 || clientList.length > 0) && (
-                <span className="hidden md:inline-block text-slate-600">|</span>
-              )}
-              {(homepage?.milestone2 || clientList.length > 0) && (
-                <span className="hidden md:inline-flex items-center gap-1.5 text-slate-300 transition-all duration-500">
-                  <span className="text-slate-400 font-normal">Technical Partner:</span>
-                  <span 
-                    key={currentClientIdx}
-                    className="font-semibold text-white animate-fade-in inline-flex items-center gap-1"
-                  >
-                    {clientList[currentClientIdx]?.name || homepage?.milestone2?.replace(/^Lead Technical Partner:\s*/i, '') || homepage?.milestone2}
-                    {clientList[currentClientIdx]?.location && (
-                      <span className="text-[10px] text-red-300 font-normal">({clientList[currentClientIdx].location})</span>
-                    )}
-                  </span>
-                </span>
-              )}
-            </div>
+                {homepage.milestone3}
+              </span>
+            )}
 
-            <div className="flex items-center gap-4 text-xs">
-              {socials?.phone && (
-                <a href={`tel:${socials.phone}`} className="text-slate-200 hover:text-white transition-colors flex items-center gap-1.5 font-medium">
-                  <FiPhoneCall className="text-[#c1121f]" /> {socials.phone}
-                </a>
-              )}
-              {socials?.phone && socials?.email && (
-                <span className="text-slate-600">•</span>
-              )}
-              {socials?.email && (
-                <a href={`mailto:${socials.email}`} className="text-slate-200 hover:text-white transition-colors hidden sm:flex items-center gap-1.5 font-medium">
-                  <FiMail className="text-red-400" /> {socials.email}
-                </a>
-              )}
-            </div>
+            {homepage?.milestone3 && (
+              <span className="hidden sm:inline-block text-slate-600">|</span>
+            )}
+
+            {/* Technical Partner: ONLY these 5 clients change/rotate */}
+            <Link
+              to="/clients"
+              className="inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition-all group"
+              title="Click to view Featured Clients & Services"
+            >
+              <span className="text-slate-400 font-medium">Technical Partner:</span>
+              <span 
+                key={currentClientIdx}
+                className="font-bold text-white group-hover:text-red-400 animate-fade-in inline-flex items-center gap-1.5 transition-colors"
+              >
+                <span>{currentClient.name}</span>
+                <span className="text-[10px] text-red-300 font-normal px-1.5 py-0.2 rounded bg-red-950/80 border border-red-800/70">
+                  {currentClient.engagement}
+                </span>
+              </span>
+            </Link>
+          </div>
+
+          {/* Right side contact & link to clients */}
+          <div className="flex items-center gap-3 sm:gap-4 text-xs">
+           
+
+            {socials?.phone && (
+              <a
+                href={`tel:${socials.phone}`}
+                className="text-slate-200 hover:text-white transition-colors flex items-center gap-1.5 font-medium text-[11px]"
+              >
+                <FiPhoneCall className="text-[#c1121f]" /> {socials.phone}
+              </a>
+            )}
+
+            {socials?.phone && socials?.email && (
+              <span className="text-slate-600 hidden sm:inline">•</span>
+            )}
+
+            {socials?.email && (
+              <a
+                href={`mailto:${socials.email}`}
+                className="text-slate-200 hover:text-white transition-colors hidden sm:flex items-center gap-1.5 font-medium text-[11px]"
+              >
+                <FiMail className="text-red-400" /> {socials.email}
+              </a>
+            )}
           </div>
         </div>
-      )}
+      </div>
 
-      {/* Main Navigation - 100% Solid White Background */}
+      {/* Main Navigation - Solid Header */}
       <header className="bg-white w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">

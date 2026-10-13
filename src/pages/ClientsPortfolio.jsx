@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedPage from '../components/AnimatedPage';
+import { PORTFOLIO_CLIENTS, FEATURED_5_CLIENTS } from '../data/portfolioClients.jsx';
 import { 
   FiAward, 
   FiCheckCircle, 
   FiMapPin, 
-  FiLayers, 
   FiArrowRight,
   FiHome,
   FiShoppingBag,
@@ -15,64 +15,19 @@ import {
 } from 'react-icons/fi';
 
 export default function ClientsPortfolio() {
+  const [activeCategory, setActiveCategory] = useState('All');
 
-  const featuredClients = [
-    {
-      name: 'IndiQube',
-      logo: 'IQ',
-      logoColor: 'bg-sfm-navy',
-      engagement: 'Interiors & Fit-outs',
-      tag: 'Civil & Architectural',
-      tagColor: 'text-sfm-navy bg-slate-100 border-slate-200',
-      icon: <FiLayers className="text-xl text-sfm-red" />,
-      image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=80',
-      description: 'High-finish interior fit-out work, false ceiling systems, glass partitions, and architectural finish maintenance across IndiQube co-working spaces.'
-    },
-    {
-      name: 'Taj Hotels',
-      logo: 'TAJ',
-      logoColor: 'bg-sfm-red',
-      engagement: 'Technical Services Provider',
-      tag: 'Hard Services',
-      tagColor: 'text-sfm-red bg-red-50 border-red-200',
-      icon: <FiActivity className="text-xl text-sfm-navy" />,
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80',
-      description: 'Designated technical services partner managing central HVAC, switchgear, plumbing, and ELV systems to maintain 5-star operational standards.'
-    },
-    {
-      name: 'Hilton',
-      logo: 'H',
-      logoColor: 'bg-sfm-navy',
-      engagement: 'Technical & Soft Services',
-      tag: 'IFM Bundle',
-      tagColor: 'text-sfm-navy bg-blue-50 border-blue-200',
-      icon: <FiShield className="text-xl text-sfm-red" />,
-      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80',
-      description: 'Integrated Facility Management covering both hard services (HVAC, electrical, plumbing) and soft services (housekeeping, pest control) under a single SLA.'
-    },
-    {
-      name: 'Land Rover',
-      logo: 'LR',
-      logoColor: 'bg-slate-800',
-      engagement: 'On-call Repairs & AMC',
-      tag: 'AMC + Reactive',
-      tagColor: 'text-slate-700 bg-slate-100 border-slate-300',
-      icon: <FiCheckCircle className="text-xl text-slate-600" />,
-      image: 'https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=600&q=80',
-      description: 'Annual Maintenance Contract and on-call repair services for showroom electrical systems, HVAC units, civil upkeep, and emergency breakdown response.'
-    },
-    {
-      name: 'Bhalla Farms',
-      logo: 'BF',
-      logoColor: 'bg-sfm-navy',
-      engagement: 'IFM Consultancy',
-      tag: 'Consultancy',
-      tagColor: 'text-sfm-navy bg-slate-100 border-slate-200',
-      icon: <FiMapPin className="text-xl text-sfm-red" />,
-      image: 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=600&q=80',
-      description: 'Integrated Facility Management consultancy services covering operational audit, maintenance planning, vendor sourcing, and facility compliance advisory.'
-    }
+  const categories = [
+    'All',
+    'Hospitality',
+    'Retail & Mega Malls',
+    'Corporate & Tech Parks',
+    'Agri & Estate Properties'
   ];
+
+  const filteredClients = activeCategory === 'All' 
+    ? PORTFOLIO_CLIENTS 
+    : PORTFOLIO_CLIENTS.filter(c => c.vertical === activeCategory);
 
   const verticals = [
     {
@@ -130,7 +85,7 @@ export default function ClientsPortfolio() {
             Our Valued Client Portfolio
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mt-3 leading-relaxed">
-            Trusted partner for tier-1 brands across hospitality, retail, and corporate hubs in North India with scalable expansion.
+            Trusted facility operations partner for tier-1 brands across hospitality, retail, and corporate hubs with pan-India scalability.
           </p>
         </div>
       </section>
@@ -195,13 +150,26 @@ export default function ClientsPortfolio() {
             <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500 block mb-1">
               Key Client Engagements
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-sfm-navy font-display mb-6">
-              Featured Clients & Services
-            </h2>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-black text-sfm-navy font-display">
+                  Featured Clients & Services
+                </h2>
+                <p className="text-xs text-slate-500 font-medium mt-1">
+                  Primary Technical FM Partners & SLA Retainers Across North India
+                </p>
+              </div>
 
-            {/* Client Portfolio Cards Grid */}
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-red-50 border border-red-200 text-[#c1121f] text-xs font-extrabold tracking-wide uppercase">
+                  5 Key Strategic Retainers
+                </span>
+              </div>
+            </div>
+
+            {/* Client Portfolio Cards Grid - The 5 Featured Clients */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredClients.map((client, idx) => (
+              {FEATURED_5_CLIENTS.map((client, idx) => (
                 <div
                   key={idx}
                   className="group rounded-2xl bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1"
@@ -243,12 +211,15 @@ export default function ClientsPortfolio() {
                   {/* Card Body & Scope */}
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                     <div>
-                      <div className="flex items-center gap-2 mb-2">
+                      <div className="flex items-center justify-between gap-2 mb-2">
                         <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
                           Scope & Deliverables
                         </span>
-                        <div className="h-px bg-slate-100 flex-1"></div>
+                        <span className="text-[10px] font-bold text-slate-400">
+                          {client.tag}
+                        </span>
                       </div>
+                      <div className="h-px bg-slate-100 mb-2"></div>
                       <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                         {client.description}
                       </p>
@@ -257,7 +228,7 @@ export default function ClientsPortfolio() {
                     {/* Card Footer */}
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                       <span className="font-semibold text-slate-500 flex items-center gap-1.5">
-                        <FiCheckCircle className="text-sfm-red" /> Active Contract
+                        <FiCheckCircle className="text-sfm-red" /> Active SLA Partner
                       </span>
                       <Link
                         to="/contact"

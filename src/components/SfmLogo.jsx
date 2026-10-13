@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from '../assets/main-logo.png';
+import logoImg from '../assets/footer-logo.png';
 
-export default function SfmLogo({ size = 'md', className = '' }) {
+export default function SfmLogo({ size = 'md', className = '', imgClassName = '' }) {
   const sizeClasses = {
     xs: 'h-8 max-h-8',
     sm: 'h-10 max-h-10',
     md: 'h-14 max-h-14',
     lg: 'h-20 max-h-20',
-    xl: 'h-24 max-h-24'
+    xl: 'h-24 max-h-24',
+    '2xl': 'h-28 max-h-28'
   };
 
   const selectedClass = sizeClasses[size] || sizeClasses.md;
@@ -18,7 +19,7 @@ export default function SfmLogo({ size = 'md', className = '' }) {
       <img
         src={logoImg}
         alt="Spartans Facility Management"
-        className={`${selectedClass} w-auto object-contain  transition-transform duration-200 group-hover:scale-105`}
+        className={`${selectedClass} w-auto object-contain transition-transform duration-200 group-hover:scale-105 ${imgClassName}`}
       />
     </Link>
   );
